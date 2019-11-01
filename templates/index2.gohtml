@@ -1,0 +1,29 @@
+{{template "layout" .}}
+
+{{define "title"}}
+	Our Report
+{{end}}
+
+{{define "content"}}
+<h1 class="title">Our Status Update</h1>
+<p>
+	As of Oct 31, 2019
+</p>
+<h2 class="title">
+</h2>
+<ul>
+	<a data-flickr-embed="true" href="https://www.flickr.com/photos/184479965@N02/48993530967/in/dateposted-public/" title="Capture1"><img src="https://live.staticflickr.com/65535/48993530967_dfac43e066_b.jpg" width="1024" height="720" alt="Capture1"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+	<a data-flickr-embed="true" href="https://www.flickr.com/photos/184479965@N02/48992791498/in/dateposted-public/" title="Capture2"><img src="https://live.staticflickr.com/65535/48992791498_8928daea1c_b.jpg" width="1024" height="729" alt="Capture2"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+	<a data-flickr-embed="true" href="https://www.flickr.com/photos/184479965@N02/48992791498/in/dateposted-public/" title="Capture2"><img src="https://live.staticflickr.com/65535/48992791498_8928daea1c_b.jpg" width="1024" height="729" alt="Capture2"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+	<a data-flickr-embed="true" href="https://www.flickr.com/photos/184479965@N02/48992791483/in/dateposted-public/" title="Capture4"><img src="https://live.staticflickr.com/65535/48992791483_45b8c0b78b_b.jpg" width="1024" height="714" alt="Capture4"></a><script async src="//embedr.flickr.com/assets/client-code.js" charset="utf-8"></script>
+	{{range .Events}}
+		<li>
+			<a href="/events/{{.ID}}">{{.Title}}</a>
+						at
+			<time>
+				{{.Date.Format "2006-01-02T15:04:05"}}
+			</time>
+		</li>
+	{{end}}
+</ul>
+{{end}}
