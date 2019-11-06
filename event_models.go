@@ -120,3 +120,7 @@ func init() {
 	}
 	allEvents = append(allEvents, defaultEvents...)
 }
+
+type Report struct {
+	ID string
+}
