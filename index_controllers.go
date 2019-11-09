@@ -22,6 +22,10 @@ func indexController(w http.ResponseWriter, r *http.Request) {
 	tmpl["index"].Execute(w, contextData)
 }
 
+func aboutHandler(w http.ResponseWriter, r *http.Request) {
+	tmpl["about"].Execute(w, "")
+}
+
 func eventsController(w http.ResponseWriter, r *http.Request) {
 
 	contextData := indexContextData{
