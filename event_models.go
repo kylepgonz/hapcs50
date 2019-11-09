@@ -21,6 +21,7 @@ type Event struct {
 	Location  string    `json:"location"`
 	Image     string    `json:"image"`
 	Date      time.Time `json:"date"`
+	Category 	string 		`json:"category"`
 	Attending []string  `json:"attending"`
 }
 
@@ -91,6 +92,7 @@ func init() {
 			Date:      time.Date(2019, 10, 17, 16, 30, 0, 0, newYork),
 			Image:     "http://i.imgur.com/pXjrQ.gif",
 			Location:  "Kyle's house",
+			Category:		"",
 			Attending: []string{"kyle.jensen@yale.edu", "kim.kardashian@yale.edu"},
 		},
 		Event{
@@ -99,6 +101,7 @@ func init() {
 			Date:      time.Date(2019, 10, 19, 19, 0, 0, 0, newYork),
 			Image:     "http://i.imgur.com/7pe2k.gif",
 			Location:  "Sharon Oster's house",
+			Category: 	"",
 			Attending: []string{"kyle.jensen@yale.edu", "kim.kardashian@yale.edu"},
 		},
 		Event{
@@ -107,6 +110,7 @@ func init() {
 			Date:      time.Date(2019, 12, 2, 18, 0, 0, 0, newYork),
 			Image:     "http://i.imgur.com/CJLrRqh.gif",
 			Location:  "Barry Nalebuff's house",
+			Category: 	"",
 			Attending: []string{"kim.kardashian@yale.edu"},
 		},
 		Event{
@@ -115,6 +119,7 @@ func init() {
 			Date:      time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:     "http://i.imgur.com/02KT9.gif",
 			Location:  "Yale Farm",
+			Category:	 "",
 			Attending: []string{"homer.simpson@yale.edu"},
 		},
 	}

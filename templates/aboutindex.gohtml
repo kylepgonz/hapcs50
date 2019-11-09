@@ -5,7 +5,8 @@
 {{end}}
 
 {{define "content"}}
-<h1 class="title">Our Status Update - Western Star</h1>
+<link rel='stylesheet' type='text/css' href='/static/main.css'>
+<h1 class="title">Our Status Update - Team Western Star</h1>
 <p>
 	As of {{.Content}}
 </p>
@@ -15,6 +16,7 @@
 	<a href="/">Home</a>
 	<a href="/about">Sprint Report 1</a>
 	<a href="/about?report=2">Sprint Report 2</a>
+	<img src ="/static/logo.jpeg">
 	{{range .Report}}
 		<img src="{{.}}" style="width: 100%;max-height: 100%">
 	{{end}}

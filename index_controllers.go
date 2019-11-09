@@ -4,6 +4,7 @@ import (
 	"net/http"
 	"time"
 	"strconv"
+	//"io/ioutil"
 )
 
 type indexContextData struct {
@@ -36,13 +37,14 @@ func reportHandler(w http.ResponseWriter, r *http.Request) {
 	pageContent := []string{}
 	reportDate := ""
 	pages, foundPages := r.URL.Query()["report"]
+
 	if foundPages {
 		i, err := strconv.Atoi(pages[0])
 		if err == nil {
 				switch i {
 				case 2:
 					pageContent = append(pageContent,
-													"https://www.manchesteryz.org/wp-content/uploads/2018/10/UNDER-CONSTRUCTION.jpg")
+													"https://www.manchesteryz.org/wp-content/uploads/2018/10/UNDER-CONSTRUCTION.jpg",)
 													//"https://live.staticflickr.com/65535/48992791498_8928daea1c_b.jpg",
 													//"https://live.staticflickr.com/65535/48993530992_35de02a005_b.jpg",
 													//"https://live.staticflickr.com/65535/48992791483_45b8c0b78b_b.jpg")

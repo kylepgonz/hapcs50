@@ -1,0 +1,25 @@
+body {
+  max-width: 800px;
+  background-color: #fefbd8;
+  padding: 50px;
+}
+header {
+
+}
+
+
+footer {
+
+}
+
+img.som-shield {
+    height: 2em;
+    display: block;
+}
+
+input {
+    display: block;
+}
+ul {
+  color: yellow;
+}
