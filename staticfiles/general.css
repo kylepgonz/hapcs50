@@ -1,17 +1,42 @@
 body {
-  max-width: 800px;
-  background-color: #5CDB95;
-  padding: 50px;
-  color: white;
+  background-color: #f9f5f2;
+  color: d43434;
   font-family: 'Verdana';
+  margin: 0;
+}
+.titlescreen {
+  margin-left: -60px;
+  margin-right: -60px;
+  font-family: 'Fredoka One';
+  font-size: 30px;
+  padding-left: 60px;
+  padding-right: 60px;
+  padding-top: 0px;
+  padding-bottom: 30px;
+  text-align: center;
+  background: #000d2d;
+  color: #d43434;
+}
+.body {
+  padding: 60px;
+}
+header {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: #000d2d;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
 }
 h1 {
+  color: #d43434;
   font-family: 'Fredoka One';
-  font-size: 48px;
 }
 h2 {
+  color: #d43434;
   font-family: 'Fredoka One';
-  font-size: 24px;
+  font-size: 30px;
 }
 p {
   font-family: 'Verdana';
@@ -20,52 +45,75 @@ p {
 
 a:link, a:visited  {
   text-decoration-line: none;
-  text-decoration-style: none;
-  color: white;
+  color: #d43434;
 }
 a:hover, a:active {
   text-decoration-line: none;
-  text-decoration-style: none;
-  color: red;
+}
+button.footer{
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 16px;
+  padding-right: 16px;
+  border-radius: 8px;
+  background-color: white;
+  box-shadow: 0 0.5px 10px 0 rgba(0,0,0,0.2), 0 1px 1px 0 rgba(0,0,0,0.19);
+  outline-style: none;
+  border: none;
+  font-size: 14px;
+  text-align: center;
+  cursor:pointer;
+  font-weight: bold;
+}
+button.footer:active, button.footer:hover{
+  background-color: #d43434;
+  color: white;
 }
 footer {
-  margin:0 auto; 
+  padding: 16px;
+  right: 13px;
+  left: auto;
+  z-index: 3;
+  bottom: 13px;
   color: white;
-  background-color: #05386B;
-  font-size: 70%;
   padding: 5px;
-  font-weight: bold;
+  position: fixed;
+  margin-right: 12px;
+  transition: box-shadow 0.2s ease 0s, -ms-transform 0.1s ease 0s, -webkit-transform 0.1s ease 0s, transform 0.1s ease 0s !important;
 }
 
 img.logo {
-  height: 25%;
-  width: 25%;
+  height: 5em;
 }
-
+img.report {
+  max-width: none;
+}
 img.som-shield {
     height: 2em;
     display: block;
+}
+img.grid {
+  object-fit: cover;
+  width: 350px;
+  height: 300px;
 }
 
 input {
     display: block;
 }
 ul {
-  color: #05386B;
+  color: #EDF5E1;
 }
 
 .grid-container {
   display: grid;
-  grid-gap: 50px;
+  grid-gap: 0px;
   grid-template-columns: auto auto auto;
-  background-color: #2196F3;
-  padding: 10px;
+  padding: 5px;
 }
 
 .grid-item {
-  background-color: rgba(255, 255, 255, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
   padding: 20px;
-  font-size: 30px;
+  font-size: 15px;
   text-align: center;
 }

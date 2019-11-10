@@ -56,10 +56,6 @@ func reportHandler(w http.ResponseWriter, r *http.Request) {
 													"https://live.staticflickr.com/65535/49039845638_ab75bf6488_b.jpg",
 													"https://live.staticflickr.com/65535/49040354096_0b34ff6a93_b.jpg",
 													"https://live.staticflickr.com/65535/49040565602_70c94ea58c_b.jpg")
-												
-													//"https://live.staticflickr.com/65535/48992791498_8928daea1c_b.jpg",
-													//"https://live.staticflickr.com/65535/48993530992_35de02a005_b.jpg",
-													//"https://live.staticflickr.com/65535/48992791483_45b8c0b78b_b.jpg")
 					reportDate = "November 07, 2019"
 				default:
 					pageContent = append(pageContent,
