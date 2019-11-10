@@ -17,21 +17,30 @@ p {
   font-family: 'Verdana';
   font-size: 15px;
 }
-.footerLinks a{
+
+a:link, a:visited  {
+  text-decoration-line: none;
+  text-decoration-style: none;
   color: white;
-  font-size: 80%;
+}
+a:hover, a:active {
+  text-decoration-line: none;
+  text-decoration-style: none;
+  color: red;
 }
 footer {
+  margin:0 auto; 
   color: white;
   background-color: #05386B;
+  font-size: 70%;
   padding: 5px;
+  font-weight: bold;
 }
 
 img.logo {
   height: 25%;
   width: 25%;
 }
-font-family: 'Fredoka One', cursive;
 
 img.som-shield {
     height: 2em;
