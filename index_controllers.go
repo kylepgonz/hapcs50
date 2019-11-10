@@ -48,7 +48,15 @@ func reportHandler(w http.ResponseWriter, r *http.Request) {
 				switch i {
 				case 2:
 					pageContent = append(pageContent,
-													"https://www.manchesteryz.org/wp-content/uploads/2018/10/UNDER-CONSTRUCTION.jpg",)
+													"https://live.staticflickr.com/65535/49040354161_9f431fb7b4_b.jpg",
+													"https://live.staticflickr.com/65535/49040354151_8db7c2b5aa_b.jpg",
+													"https://live.staticflickr.com/65535/49040354136_7974f2ca06_b.jpg",
+													"https://live.staticflickr.com/65535/49040354121_9b44f52505_b.jpg",
+													"https://live.staticflickr.com/65535/49039845658_13d8a1c420_b.jpg",
+													"https://live.staticflickr.com/65535/49039845638_ab75bf6488_b.jpg",
+													"https://live.staticflickr.com/65535/49040354096_0b34ff6a93_b.jpg",
+													"https://live.staticflickr.com/65535/49040565602_70c94ea58c_b.jpg")
+												
 													//"https://live.staticflickr.com/65535/48992791498_8928daea1c_b.jpg",
 													//"https://live.staticflickr.com/65535/48993530992_35de02a005_b.jpg",
 													//"https://live.staticflickr.com/65535/48992791483_45b8c0b78b_b.jpg")
