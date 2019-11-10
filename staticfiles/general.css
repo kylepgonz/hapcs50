@@ -33,6 +33,9 @@ h1 {
   color: #d43434;
   font-family: 'Fredoka One';
 }
+h1.normal{
+  margin-top: 80px;
+}
 h2 {
   color: #d43434;
   font-family: 'Fredoka One';
