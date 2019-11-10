@@ -5,30 +5,32 @@
 {{end}}
 
 {{define "content"}}
-<h1 class="title">Hap by Team Western Star</h1>
-<p>
+
+<div class="titlescreen">
+	<h1 class="title">Hap</h1>
+	<p> by Team Western Star </p>
+</div>
+
+<h1 class="title">
 	Hi, today is {{.Today.Format "Jan 02, 2006"}}
-</p>
-	<ul>
-		<li>
-			<a href="/about">Sprint Report 1</a>
-		</li>
-		<li>
-			<a href="/about?report=2">Sprint Report 2</a>
-		</li>
-	</ul>
+</h1>
 <p>
 	<a href="/events/new">Create</a> a new event.
 </p>
-<ul>
+<p>
+	<div class="grid-container">
 	{{range .Events}}
-		<li>
-			<a href="/events/{{.ID}}">{{.Title}}</a>
-			at
-			<time>
-				{{.Date.Format "2006-01-02T15:04:05"}}
-			</time>
-		</li>
+		<div class="grid-item">
+				<img src="{{.Image}}" class="grid">
+				<p>
+				<a href="/events/{{.ID}}">{{.Title}}</a>
+				at
+				<time>
+					{{.Date.Format "2006-01-02T15:04:05"}}
+				</time>
+				</p>
+			</div>
 	{{end}}
-</ul>
+	</div>
+</p>
 {{end}}

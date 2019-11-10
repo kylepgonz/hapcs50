@@ -5,19 +5,19 @@
 {{end}}
 
 {{define "content"}}
-<h1 class="title">Our Status Update</h1>
+<h1 class="title"></h1>
+<p>
+	Our Status Update
+</p>
 <p>
 	As of {{.Content}}
 </p>
 <h2 class="title">
 </h2>
-<ul>
-	<a href="/">Home</a>
-	<a href="/about">Sprint Report 1</a>
-	<a href="/about?report=2">Sprint Report 2</a>
+<p>
 	{{range .Report}}
-		<img src="{{.}}" style="width: 100%;max-height: 100%">
+		<img class="report" src="{{.}}" style="width: 100%;max-height: 100%">
 	{{end}}
-</ul>
+</p>
 </form>
 {{end}}
