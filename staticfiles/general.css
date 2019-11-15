@@ -101,6 +101,10 @@ img.grid {
   height: 300px;
 }
 
+img {
+  z-index: -1;
+}
+
 input {
     display: block;
 }
