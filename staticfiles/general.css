@@ -46,12 +46,12 @@ p {
   font-size: 15px;
 }
 
-a:link, a:visited  {
+a:link, a:visited {
   text-decoration-line: none;
   color: #d43434;
 }
-a:hover, a:active {
-  text-decoration-line: none;
+a:active, a:hover {
+  color: #dd7e6b;
 }
 button.footer{
   padding-top: 5px;
