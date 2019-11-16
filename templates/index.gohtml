@@ -18,6 +18,30 @@
 	<a href="/events/new">Create</a> a new event.
 </p>
 <p>
+
+<div class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+  </ol>
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+        <img src="https://media3.s-nbcnews.com/j/newscms/2018_49/1393376/lizzie-mcguire-today-181208-main-02_3f4e3ba12a1ab09a3346b12e3896e65b.fit-760w.jpg" class="d-block w-100" alt="LM">
+    </div>
+    <div class="carousel-item active">
+        <img src="https://media3.s-nbcnews.com/j/newscms/2018_49/1393376/lizzie-mcguire-today-181208-main-02_3f4e3ba12a1ab09a3346b12e3896e65b.fit-760w.jpg" class="d-block w-100" alt="LM">
+    </div>
+  </div>
+   <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
 	<div class="grid-container">
 	{{range .Events}}
 		<div class="grid-item">
@@ -29,7 +53,7 @@
 					{{.Date.Format "2006-01-02T15:04:05"}}
 				</time>
 				</p>
-			</div>
+		</div>
 	{{end}}
 	</div>
 </p>
