@@ -1,0 +1,38 @@
+{{template "layout" .}}
+
+{{define "title"}}
+	{{.Title}}
+{{end}}
+
+{{define "content"}}
+<div class="body">
+	<p>
+			<!-- <div class="grid-item"> -->
+					<img src="{{.Image}}">
+					<p>
+					Title: <a href="/events/{{.ID}}">{{.Title}}</a>
+					</p>
+					<p>
+					Time:
+					<time>
+						{{.Date.Format "2006-01-02 15:04"}}
+					</time>
+					</p>
+					<p>
+						Location: {{.Location}}
+					</p>
+					<p>
+						Category: {{.Category}}
+					</p>
+						Attendees:
+					{{range .Attending}}
+						<ul>
+							<li>
+							{{.}}
+							</li>
+						</ul>
+					{{end}}
+			<!-- </div> -->
+	</p>
+</div>
+{{end}}

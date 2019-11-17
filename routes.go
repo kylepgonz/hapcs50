@@ -15,6 +15,7 @@ func getRoutes() chi.Router {
 	r.Get("/", indexController)
 	r.Get("/about", reportHandler)
 	r.Get("/aboutus", aboutHandler)
+	r.Get("/events/{eventID:[0-9]+}", eventDetailController)
 	addStaticFileServer(r, "/static/", "staticfiles")
 	return r
 }
