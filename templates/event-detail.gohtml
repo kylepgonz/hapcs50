@@ -1,38 +1,65 @@
 {{template "layout" .}}
 
 {{define "title"}}
-	{{.Title}}
+	{{.Event.Title}}
 {{end}}
 
 {{define "content"}}
 <div class="body">
 	<p>
-			<!-- <div class="grid-item"> -->
-					<img src="{{.Image}}">
-					<p>
-					Title: <a href="/events/{{.ID}}">{{.Title}}</a>
-					</p>
-					<p>
-					Time:
-					<time>
-						{{.Date.Format "2006-01-02 15:04"}}
-					</time>
-					</p>
-					<p>
-						Location: {{.Location}}
-					</p>
-					<p>
-						Category: {{.Category}}
-					</p>
-						Attendees:
-					{{range .Attending}}
-						<ul>
-							<li>
-							{{.}}
-							</li>
-						</ul>
-					{{end}}
-			<!-- </div> -->
+		<!-- <div class="grid-item"> -->
+		<img src="{{.Event.Image}}">
+		<p>
+			Title: <a href="/events/{{.Event.ID}}">{{.Event.Title}}</a>
+		</p>
+		<p>
+			Time:
+			<time>
+				{{.Event.Date.Format "2006-01-02 15:04"}}
+			</time>
+		</p>
+		<p>
+			Location: {{.Event.Location}}
+		</p>
+		<p>
+			Category: {{.Event.Category}}
+		</p>
+		<p>
+			Description: {{.Event.Description}}
+		</p>
+			Attendees:
+			{{range .Event.Attending}}
+			<ul>
+				<li>
+				{{.}}
+				</li>
+			</ul>
+		{{end}}
+		<!-- </div> -->
+		<section>
+			<p>RSVP form:</p>
+			<form method="POST">
+			<input type="email" name="email">
+			<input type="submit">
+			</form>
+		</section>
+
+		{{if .FormErrors}}
+		<section class="errors">
+			<h1 style="color:red;">
+			{{.FormErrors}}
+			</h1>
+		</section>
+		{{end}}
+
+		{{if .FormMessages}}
+		<section class="messages">
+			<h1 style="color:green;">
+			{{.FormMessages}}
+			</h1>
+		</section>
+		{{end}}
+
 	</p>
 </div>
 {{end}}

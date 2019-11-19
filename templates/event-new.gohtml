@@ -1,0 +1,64 @@
+{{template "layout" .}}
+
+{{define "title"}}
+	Create an Event!
+{{end}}
+
+{{define "content"}}
+<div class="body">
+	<p>
+
+		<section>
+			<p>RSVP form:</p>
+			<form method="POST">
+				<label for="title">Title</label>
+				<input type="text" name="title">
+				<label for="location">Location</label>
+				<input type="text" name="location">
+				<label for="image">Image URL</label>
+				<input type="url" name="image">
+				<p>
+				<label for="category">Category</label>
+				</p>
+					<p>
+					<select name="category">
+						<option value="none" selected disabled hidden>
+			      	Select an Option 
+			      </option>
+					  <option value="Sport">Sport</option>
+					  <option value="Career + Biz">Career + Biz</option>
+					  <option value="Food + Drink">Food + Drink</option>
+					  <option value="Music + Dance">Music + Dance</option>
+						<option value="Spiritual">Spritual</option>
+						<option value="Art">Art</option>
+						<option value="Charity">Charity</option>
+					</select>
+					</p>
+				<label for="date">Date of event</label>
+				<input type="datetime-local" name="date" placeholder="YYYY-MM-DDTHH:MM">
+
+				<label for="description">Description</label>
+				<input type="text" name="description">
+				<input type="submit">
+			</form>
+		</section>
+
+		{{if .FormErrors}}
+		<section class="errors">
+			<h1 style="color:red;">
+			{{.FormErrors}}
+			</h1>
+		</section>
+		{{end}}
+
+		{{if .FormMessages}}
+		<section class="messages">
+			<h1 style="color:green;">
+			{{.FormMessages}}
+			</h1>
+		</section>
+		{{end}}
+
+	</p>
+</div>
+{{end}}

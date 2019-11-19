@@ -15,4 +15,5 @@ func init() {
 	tmpl["report3"] = m(p("templates/SoftwareDevelopment_Sprint3.gohtml", "templates/layout.gohtml"))
 	tmpl["event-detail"] = m(p("templates/event-detail.gohtml", "templates/layout.gohtml"))
 	tmpl["about"] = m(p("templates/aboutpage.gohtml", "templates/layout.gohtml"))
+	tmpl["event-new"] = m(p("templates/event-new.gohtml", "templates/layout.gohtml"))
 }
