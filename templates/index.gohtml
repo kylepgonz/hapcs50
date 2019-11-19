@@ -8,22 +8,33 @@
 
 <script src="/static/myScript.js"></script>
 <div class="titlescreen">
-	<div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+	<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
 	  <ol class="carousel-indicators">
 	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
 	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+	    <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
 	  </ol>
 	  <div class="carousel-inner">
 	    <div class="carousel-item active">
-	      <img src="https://media3.s-nbcnews.com/j/newscms/2018_49/1393376/lizzie-mcguire-today-181208-main-02_3f4e3ba12a1ab09a3346b12e3896e65b.fit-760w.jpg" class="d-block w-100" alt="LM">
+	      <img src="/static/carousel.png" class="d-block w-100" alt="LM">
 	    </div>
+
+
 	    <div class="carousel-item">
-	      <img src="http://s1.picswalls.com/wallpapers/2016/06/16/beautiful-earth-wallpaper_033132218_311.jpg" class="d-block w-100" alt="earth">
+				<video class="video-fluid" autoplay loop muted>
+					<source src="/static/carousel.mp4" type="video/mp4">
+				</video>
+				<div class="mask rgba-indigo-light"></div>
+					<div class="carousel-caption">
+						<div class="animated fadeInRight">
+							<h3 class="h3-responsive">Let's have fun!</h3>
+						</div>
+					</div>
+				<!-- <img src="http://s1.picswalls.com/wallpapers/2016/06/16/beautiful-earth-wallpaper_033132218_311.jpg" class="d-block w-100" alt="earth"> -->
 	    </div>
-	    <div class="carousel-item">
+	    <!-- <div class="carousel-item">
 	      <img src="https://media3.s-nbcnews.com/j/newscms/2018_49/1393376/lizzie-mcguire-today-181208-main-02_3f4e3ba12a1ab09a3346b12e3896e65b.fit-760w.jpg" class="d-block w-100" alt="LM2">
-	    </div>
+	    </div> -->
 	  </div>
 	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -47,7 +58,8 @@
 		{{range .Events}}
 			<div class="grid-item">
 					<a href="/events/{{.ID}}">
-					<img src="{{.Image}}" class="grid">
+					<!-- <img src="{{.Image}}" class="grid"> -->
+					<img class="gif grid" src="{{.Image}}">
 					<p>
 					{{.Title}}</a>
 					at

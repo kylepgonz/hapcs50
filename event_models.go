@@ -21,7 +21,7 @@ type Event struct {
 	Location  string    `json:"location"`
 	Image     string    `json:"image"`
 	Date      time.Time `json:"date"`
-	Category 	string 		`json:"category"`
+	Category  string    `json:"category"`
 	Attending []string  `json:"attending"`
 }
 
@@ -71,7 +71,7 @@ func addAttendee(id int, email string) error {
 
 func addEvent(event Event) {
 	allEventsMutex.Lock()
-	event.ID = getMaxEventID()
+	event.ID = getMaxEventID() + 1
 	allEvents = append(allEvents, event)
 	allEventsMutex.Unlock()
 }
@@ -92,7 +92,7 @@ func init() {
 			Date:      time.Date(2019, 10, 17, 16, 30, 0, 0, newYork),
 			Image:     "http://i.imgur.com/pXjrQ.gif",
 			Location:  "Kyle's house",
-			Category:		"",
+			Category:  "",
 			Attending: []string{"kyle.jensen@yale.edu", "kim.kardashian@yale.edu"},
 		},
 		Event{
@@ -101,7 +101,7 @@ func init() {
 			Date:      time.Date(2019, 10, 19, 19, 0, 0, 0, newYork),
 			Image:     "http://i.imgur.com/7pe2k.gif",
 			Location:  "Sharon Oster's house",
-			Category: 	"",
+			Category:  "",
 			Attending: []string{"kyle.jensen@yale.edu", "kim.kardashian@yale.edu"},
 		},
 		Event{
@@ -110,7 +110,7 @@ func init() {
 			Date:      time.Date(2019, 12, 2, 18, 0, 0, 0, newYork),
 			Image:     "http://i.imgur.com/CJLrRqh.gif",
 			Location:  "Barry Nalebuff's house",
-			Category: 	"",
+			Category:  "",
 			Attending: []string{"kim.kardashian@yale.edu"},
 		},
 		Event{
@@ -119,7 +119,7 @@ func init() {
 			Date:      time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:     "http://i.imgur.com/02KT9.gif",
 			Location:  "Yale Farm",
-			Category:	 "",
+			Category:  "",
 			Attending: []string{"homer.simpson@yale.edu"},
 		},
 		Event{
@@ -128,7 +128,7 @@ func init() {
 			Date:      time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:     "https://media.giphy.com/media/JD0PRlEsWNkeQ/giphy.gif",
 			Location:  "Yale School of Music",
-			Category:	 "",
+			Category:  "",
 			Attending: []string{"homer.simpson@yale.edu"},
 		},
 		Event{
@@ -137,7 +137,7 @@ func init() {
 			Date:      time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:     "https://i.imgur.com/VzV1mIV.gif",
 			Location:  "SOM Beinecke",
-			Category:	 "Career + Business",
+			Category:  "Career + Business",
 			Attending: []string{"homer.simpson@yale.edu"},
 		},
 		Event{
@@ -146,7 +146,7 @@ func init() {
 			Date:      time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:     "https://media.giphy.com/media/3oEhn6803hZKJNeMhy/giphy.gif",
 			Location:  "Peabody Museum",
-			Category:	 "Art",
+			Category:  "Art",
 			Attending: []string{"homer.simpson@yale.edu"},
 		},
 		Event{
@@ -155,7 +155,7 @@ func init() {
 			Date:      time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:     "https://media.giphy.com/media/3oKGzC42QlXAnjijHa/giphy.gif",
 			Location:  "Yale Farm",
-			Category:	 "Spiritual",
+			Category:  "Spiritual",
 			Attending: []string{"homer.simpson@yale.edu"},
 		},
 		Event{
@@ -164,7 +164,7 @@ func init() {
 			Date:      time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:     "http://giphygifs.s3.amazonaws.com/media/10gZNwuUuer5aU/giphy.gif",
 			Location:  "Divinity School",
-			Category:	 "Music + dance",
+			Category:  "Music + dance",
 			Attending: []string{"homer.simpson@yale.edu"},
 		},
 		Event{
@@ -173,7 +173,7 @@ func init() {
 			Date:      time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:     "http://giphygifs.s3.amazonaws.com/media/JBP8eDB1rhIv6/giphy.gif",
 			Location:  "SOM Quad",
-			Category:	 "Food + drink",
+			Category:  "Food + drink",
 			Attending: []string{"homer.simpson@yale.edu"},
 		},
 		Event{
@@ -182,7 +182,7 @@ func init() {
 			Date:      time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:     "https://media.giphy.com/media/cLcxtL1z8t8oo/giphy.gif",
 			Location:  "East Rock Park",
-			Category:	 "Sport",
+			Category:  "Sport",
 			Attending: []string{"homer.simpson@yale.edu"},
 		},
 	}
