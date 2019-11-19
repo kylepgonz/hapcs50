@@ -17,8 +17,28 @@
 				<input type="text" name="location">
 				<label for="image">Image URL</label>
 				<input type="url" name="image">
+				<p>
+				<label for="category">Category</label>
+				</p>
+					<p>
+					<select name="category">
+						<option value="none" selected disabled hidden>
+			      	Select an Option 
+			      </option>
+					  <option value="Sport">Sport</option>
+					  <option value="Career + Biz">Career + Biz</option>
+					  <option value="Food + Drink">Food + Drink</option>
+					  <option value="Music + Dance">Music + Dance</option>
+						<option value="Spiritual">Spritual</option>
+						<option value="Art">Art</option>
+						<option value="Charity">Charity</option>
+					</select>
+					</p>
 				<label for="date">Date of event</label>
 				<input type="datetime-local" name="date" placeholder="YYYY-MM-DDTHH:MM">
+
+				<label for="description">Description</label>
+				<input type="text" name="description">
 				<input type="submit">
 			</form>
 		</section>

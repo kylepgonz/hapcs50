@@ -13,16 +13,26 @@ var allEvents []Event
 // don't touch them while I'm using them!" We use the
 // mutex when adding events or attendees.
 var allEventsMutex = &sync.Mutex{}
+var categoryExists = map[string]bool{
+	"Sport":         true,
+	"Career + Biz":  true,
+	"Food + Drink":  true,
+	"Music + Dance": true,
+	"Spiritual":     true,
+	"Art":           true,
+	"Charity":       true,
+}
 
 // Event - encapsulates information about an event
 type Event struct {
-	ID        int       `json:"id"`
-	Title     string    `json:"title"`
-	Location  string    `json:"location"`
-	Image     string    `json:"image"`
-	Date      time.Time `json:"date"`
-	Category  string    `json:"category"`
-	Attending []string  `json:"attending"`
+	ID          int       `json:"id"`
+	Title       string    `json:"title"`
+	Location    string    `json:"location"`
+	Image       string    `json:"image"`
+	Date        time.Time `json:"date"`
+	Description string    `json:"description"`
+	Category    string    `json:"category"`
+	Attending   []string  `json:"attending"`
 }
 
 // getEventByID - returns the event in `allEvents` that has

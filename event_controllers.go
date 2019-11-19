@@ -31,7 +31,8 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 		location := strings.ToLower(r.PostFormValue("location"))
 		image := r.PostFormValue("image")
 		date, _ := time.Parse("2006-01-02T15:04", r.PostFormValue("date"))
-		category := strings.ToLower(r.PostFormValue("category"))
+		category := r.PostFormValue("category")
+		description := r.PostFormValue("description")
 		id := getMaxEventID() + 1
 
 		today := time.Now()
@@ -39,15 +40,20 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 			errorsWeFound += "Wrong date!"
 		} else if id == -1 {
 			errorsWeFound += "No more event ids!"
+		} else if categoryExists[category] == false {
+			// println(category)
+			// println("test")
+			errorsWeFound += "Wrong category!"
 		} else {
 			newEvent := Event{
-				ID:        id,
-				Title:     title,
-				Date:      date,
-				Image:     image,
-				Location:  location,
-				Category:  category,
-				Attending: []string{},
+				ID:          id,
+				Title:       title,
+				Date:        date,
+				Image:       image,
+				Location:    location,
+				Category:    category,
+				Description: description,
+				Attending:   []string{},
 			}
 			addEvent(newEvent)
 			_, foundEvent := getEventByID(id)
