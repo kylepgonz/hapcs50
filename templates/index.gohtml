@@ -83,11 +83,8 @@
   </div>
 </div>
 
-	<h1>
-		Hi, today is {{.Today.Format "Jan 02, 2006"}}
-	</h1>
 	<p>
-		<a href="/events/new">Create</a> a new event.
+		<h1> Check out some fun events </h1>
 	</p>
 	<p>
 		<div class="grid-container">
@@ -96,18 +93,20 @@
 					<a href="/events/{{.ID}}">
 					<!-- <img src="{{.Image}}" class="grid"> -->
 					<img class="gif grid" src="{{.Image}}">
-					<p>
+					<span>
 					{{.Title}}</a>
+					</span>
+					<p>
 					at
 					<time>
-						{{.Date.Format "2006-01-02T15:04:05"}}
+						{{.Date.Format "01/02/2006 03:04:05pm"}}
 					</time>
-					</p>
+				</p>
 			</div>
 		{{end}}
 		</div>
 	</p>
+	</p>
 </div>
 {{end}}
 <!-- <div id="top-of-site-pixel-anchor"></div> -->
-
