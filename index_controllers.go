@@ -5,6 +5,7 @@ import (
 	"strconv"
 	"time"
 	//"io/ioutil"
+	"math/rand"
 )
 
 type indexContextData struct {
@@ -12,10 +13,15 @@ type indexContextData struct {
 	Today  time.Time
 }
 
-func indexController(w http.ResponseWriter, r *http.Request) {
+var randomEvents []Event
 
+func indexController(w http.ResponseWriter, r *http.Request) {
+	randomEvents = allEvents
+	rand.Seed(time.Now().UnixNano())
+	rand.Shuffle(len(allEvents), func(i, j int) { randomEvents[i], randomEvents[j] = randomEvents[j], randomEvents[i] })
+	var eventsList = randomEvents[0:6]
 	contextData := indexContextData{
-		Events: allEvents,
+		Events: eventsList,
 		Today:  time.Now(),
 	}
 
