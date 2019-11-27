@@ -37,7 +37,8 @@ h1 {
   align-content: center;
 }
 h1.normal{
-  margin-top: 80px;
+  margin-top: 80px
+  align-content: center;
 }
 h2 {
   color: #d43434;
@@ -138,6 +139,7 @@ ul {
   grid-gap: 0px;
   grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
   padding: 0px;
+  background-color: #f9f5f2;
 }
 
 .grid-container {
@@ -230,3 +232,63 @@ li.nav-item {
   border-radius: 0;
   padding-left: 0;
 }
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('https://i.imgur.com/LDdILxD.jpg?1');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-profile {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: Fredoka One;
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card-profile:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-profile-container {
+  padding: 2px 16px;
+}
+
+.title-profile {
+  color: grey;
+  font-size: 18px;
+}
+
+button-profile {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #d43434;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a-profile {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button-profile:hover, a:hover {
+  opacity: 0.7;
+}
+.profile-grid-container {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: 8ch( auto-fit, minmax(300px, 1fr) );
+  padding: 0px;
+
