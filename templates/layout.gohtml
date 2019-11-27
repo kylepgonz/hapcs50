@@ -11,7 +11,7 @@
 
       <link href="/static/general.css" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
-
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151590889-1"></script>
       <script>
@@ -24,7 +24,7 @@
     </head>
     <body>
       <header>
-         <nav id="navbar"  class="navbar navbar-expand-lg fixed-top navbar-light">
+         <nav id="navbar"  class="navbar navbar-expand-md fixed-top navbar-light">
             <a class="navbar-brand" href="/">
             <img class="logo" src="/static/logo.png" alt="">
             </a>
@@ -34,17 +34,25 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="nav navbar-nav nav-flex-icons ml-auto">
                <li class="nav-item">
-                  <div class="input-group">
-                     <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
-                     <div class="input-group-append">
-                        <button class="btn btn-outline-danger" type="button" id="button-addon2">Go</button>
+                 <form method="get" action="/search">
+                 <span class="clearfix d-none d-sm-inline-block mr-1">
+                   <div class="nav-link bg-transparent rounded rounded-pill shadow-sm">
+                    <div class="input-group">
+                       <input type="text" name="q" class="border-0 bg-transparent" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                       <div class="input-group-append">
+                        <!-- <button type="submit" class="btn btn-link text-danger" type="button" id="button-addon2"></button> -->
+                        <button id="button-addon2" type="submit" class="btn p-0 pr-1 bg-transparent btn-link text-danger"><i class="fa fa-search"></i></button>
+                       </div>
                      </div>
+                     </div>
+                  </span>
+                  </form>
                </li>
                <li class="nav-item">
                		<a class="nav-link" href="/events/new"> <span class="clearfix d-none d-sm-inline-block">Create Event</span></a>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="/aboutus"><i class="fas fa-comments"></i> <span class="clearfix d-none d-sm-inline-block">About</span></a>
+               <a class="nav-link" href="/aboutus"><span class="clearfix d-none d-sm-inline-block">About</span></a>
                </li>
                <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
