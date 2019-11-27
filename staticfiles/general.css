@@ -291,4 +291,4 @@ button-profile:hover, a:hover {
   grid-gap: 0px;
   grid-template-columns: 8ch( auto-fit, minmax(300px, 1fr) );
   padding: 0px;
-
+}
