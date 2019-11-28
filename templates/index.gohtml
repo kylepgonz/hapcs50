@@ -30,11 +30,7 @@
 							<h3 class="h3-responsive">Let's have fun!</h3>
 						</div>
 					</div>
-				<!-- <img src="http://s1.picswalls.com/wallpapers/2016/06/16/beautiful-earth-wallpaper_033132218_311.jpg" class="d-block w-100" alt="earth"> -->
 	    </div>
-	    <!-- <div class="carousel-item">
-	      <img src="https://media3.s-nbcnews.com/j/newscms/2018_49/1393376/lizzie-mcguire-today-181208-main-02_3f4e3ba12a1ab09a3346b12e3896e65b.fit-760w.jpg" class="d-block w-100" alt="LM2">
-	    </div> -->
 	  </div>
 	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -52,33 +48,33 @@
 
 <div class="card-deck">
   <div class="card">
-    <a href="https://imgur.com/4Mu92bq"><img src="https://i.imgur.com/4Mu92bq.png" title="source: imgur.com" img class="card-img-top"/></a>
+    <a href="/search/category?q=Networking"><img src="https://i.imgur.com/4Mu92bq.png" title="source: imgur.com" img class="card-img-top"/></a>
     <div class="card-body">
-      <a href="#" class="button.footer">Networking</a>
+      <a href="/search/category?q=Networking" class="button.footer">Networking</a>
     </div>
   </div>
   <div class="card">
-    <a href="https://imgur.com/GdJL8O7"><img src="https://i.imgur.com/GdJL8O7.png" title="source: imgur.com" img class="card-img-top"/></a>
+    <a href="/search/category?q=Food+and+Drinks"><img src="https://i.imgur.com/GdJL8O7.png" title="source: imgur.com" img class="card-img-top"/></a>
     <div class="card-body">
-      <a href="#" class="button.footer">Food and Drinks</a>
+      <a href="/search/category?q=Food+and+Drinks" class="button.footer">Food and Drinks</a>
     </div>
   </div>
   <div class="card">
-	<a href="https://imgur.com/ZkAZtdE"><img src="https://i.imgur.com/ZkAZtdE.png" title="source: imgur.com" img class="card-img-top"/></a>
+	<a href="/search/category?q=Concert"><img src="https://i.imgur.com/ZkAZtdE.png" title="source: imgur.com" img class="card-img-top"/></a>
     <div class="card-body">
-      <a href="#" class="button.footer">Concert</a>
+      <a href="/search/category?q=Concert" class="button.footer">Concert</a>
     </div>
   </div>
   <div class="card">
-	<a href="https://imgur.com/eqxpZ4d"><img src="https://i.imgur.com/eqxpZ4d.png" title="source: imgur.com" img class="card-img-top"/></a>
+	<a href="/search/category?q=Sports"><img src="https://i.imgur.com/eqxpZ4d.png" title="source: imgur.com" img class="card-img-top"/></a>
     <div class="card-body">
-      <a href="#" class="button.footer">Sports</a>
+      <a href="/search/category?q=Sports" class="button.footer">Sports</a>
     </div>
   </div>
   <div class="card">
-	<a href="https://imgur.com/CoXpp1d"><img src="https://i.imgur.com/CoXpp1d.png" title="source: imgur.com" img class="card-img-top"/></a>
+	<a href="/search/category?q=Volunteer"><img src="https://i.imgur.com/CoXpp1d.png" title="source: imgur.com" img class="card-img-top"/></a>
     <div class="card-body">
-      <a href="#" class="button.footer">Volunteer</a>
+      <a href="/search/category?q=Volunteer" class="button.footer">Volunteer</a>
     </div>
   </div>
 </div>
@@ -87,9 +83,12 @@
 		<h1> Check out some fun events </h1>
 	</p>
 	<p>
-		<div class="grid-container">
+		<!-- <div class="grid-container"> -->
+		<div class="container-fluid">
+		<div class="row">
 		{{range .Events}}
-			<div class="grid-item">
+			<!-- <div class="grid-item"> -->
+					<div class="col-lg-4 col-md-12">
 					<a href="/events/{{.ID}}">
 					<!-- <img src="{{.Image}}" class="grid"> -->
 					<img class="gif grid" src="{{.Image}}">
@@ -102,8 +101,9 @@
 						{{.Date.Format "01/02/2006 03:04:05pm"}}
 					</time>
 				</p>
-			</div>
+				</div>
 		{{end}}
+	</div>
 		</div>
 	</p>
 	</p>
