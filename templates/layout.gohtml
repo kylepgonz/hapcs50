@@ -19,6 +19,12 @@
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'UA-151590889-1');
+
+      function widen(){
+        var element = document.getElementById("search");
+        element.classList.toggle("bg-transparent");
+        element.classList.toggle("bg-white");
+      }
       </script>
       <title>{{template "title" .}}</title>
     </head>
@@ -32,13 +38,13 @@
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav nav-flex-icons ml-auto">
+            <ul class="nav align-items-center navbar-nav nav-flex-icons ml-auto">
                <li class="nav-item">
                  <form method="get" action="/search">
                  <span class="clearfix d-none d-sm-inline-block mr-1">
-                   <div class="nav-link bg-transparent rounded rounded-pill shadow-sm">
+                   <div id="search" class="nav-link bg-transparent rounded rounded-pill shadow-sm">
                     <div class="input-group">
-                       <input type="text" name="q" class="border-0 bg-transparent" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                       <input type="text" name="q" onfocusout="widen()" onFocus="widen()" autocomplete="off" class="search-box border-0 bg-transparent" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
                        <div class="input-group-append">
                         <!-- <button type="submit" class="btn btn-link text-danger" type="button" id="button-addon2"></button> -->
                         <button id="button-addon2" type="submit" class="btn p-0 pr-1 bg-transparent btn-link text-danger"><i class="fa fa-search"></i></button>

@@ -17,4 +17,5 @@ func init() {
 	tmpl["about"] = m(p("templates/aboutpage.gohtml", "templates/layout.gohtml"))
 	tmpl["event-new"] = m(p("templates/event-new.gohtml", "templates/layout.gohtml"))
 	tmpl["event-search"] = m(p("templates/search.gohtml", "templates/layout.gohtml"))
+	tmpl["event-category"] = m(p("templates/searchcategory.gohtml", "templates/layout.gohtml"))
 }

@@ -8,40 +8,22 @@
 
 <script src="/static/myScript.js"></script>
 <div class="body">
-
-<!-- <div class="card-deck">
-  <div class="card">
-    <a href="https://imgur.com/4Mu92bq"><img src="https://i.imgur.com/4Mu92bq.png" title="source: imgur.com" img class="card-img-top"/></a>
-    <div class="card-body">
-      <a href="#" class="button.footer">Networking</a>
-    </div>
-  </div>
-  <div class="card">
-    <a href="https://imgur.com/GdJL8O7"><img src="https://i.imgur.com/GdJL8O7.png" title="source: imgur.com" img class="card-img-top"/></a>
-    <div class="card-body">
-      <a href="#" class="button.footer">Food and Drinks</a>
-    </div>
-  </div>
-  <div class="card">
-	<a href="https://imgur.com/ZkAZtdE"><img src="https://i.imgur.com/ZkAZtdE.png" title="source: imgur.com" img class="card-img-top"/></a>
-    <div class="card-body">
-      <a href="#" class="button.footer">Concert</a>
-    </div>
-  </div>
-  <div class="card">
-	<a href="https://imgur.com/eqxpZ4d"><img src="https://i.imgur.com/eqxpZ4d.png" title="source: imgur.com" img class="card-img-top"/></a>
-    <div class="card-body">
-      <a href="#" class="button.footer">Sports</a>
-    </div>
-  </div>
-  <div class="card">
-	<a href="https://imgur.com/CoXpp1d"><img src="https://i.imgur.com/CoXpp1d.png" title="source: imgur.com" img class="card-img-top"/></a>
-    <div class="card-body">
-      <a href="#" class="button.footer">Volunteer</a>
-    </div>
-  </div>
-</div> -->
-
+<form method="POST">
+	<p>
+	<select id="category" name="category">
+		<option value="none" selected disabled>
+			Filter by Category
+		</option>
+		<option value="Networking">Networking</option>
+		<option value="Food and Drinks">Food and Drinks</option>
+		<option value="Concert">Concert</option>
+		<option value="Sports">Sports</option>
+		<option value="Spiritual">Spritual</option>
+		<option value="Volunteer">Volunteer</option>
+	</select>
+	<button type="submit" class="btn btn-danger">Apply</button>
+	</p>
+</form>
 	<p>
 		<h1> Search Results for: {{.Query}} </h1>
 	</p>
