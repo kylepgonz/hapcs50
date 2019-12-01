@@ -97,7 +97,7 @@ func init() {
 		Event{
 			ID:          1,
 			Title:       "SOM House Party",
-			Date:        time.Date(2019, 10, 17, 16, 30, 0, 0, newYork),
+			Date:        time.Date(2019, 12, 8, 16, 30, 0, 0, newYork),
 			Image:       "http://i.imgur.com/pXjrQ.gif",
 			Location:    "Kyle's house",
 			Category:    "Sports",
@@ -107,7 +107,7 @@ func init() {
 		Event{
 			ID:          2,
 			Title:       "BBQ party for hackers and nerds",
-			Date:        time.Date(2019, 10, 19, 19, 0, 0, 0, newYork),
+			Date:        time.Date(2019, 12, 19, 19, 0, 0, 0, newYork),
 			Image:       "http://i.imgur.com/7pe2k.gif",
 			Location:    "Sharon Oster's house",
 			Category:    "Food and Drinks",

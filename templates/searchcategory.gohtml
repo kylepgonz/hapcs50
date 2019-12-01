@@ -8,6 +8,23 @@
 
 <script src="/static/myScript.js"></script>
 <div class="body">
+	<form method="POST">
+		<p>
+		<select name="date">
+			<option value="none" {{ if eq "" .DateFilter }}selected="selected"{{ end }} disabled>
+				Filter by Date
+			</option>
+			<option value="Today" {{ if eq "Today" .DateFilter }}selected="selected"{{ end }}>Today</option>
+			<option value="Tomorrow" {{ if eq "Tomorrow" .DateFilter }}selected="selected"{{ end }}>Tomorrow</option>
+			<!-- <option value="ThisWeekend">This Weekend</option> -->
+			<option value="ThisWeek" {{ if eq "ThisWeek" .DateFilter }}selected="selected"{{ end }}>This Week</option>
+			<option value="NextWeek" {{ if eq "NextWeek" .DateFilter }}selected="selected"{{ end }}>One Week from Now</option>
+			<option value="NextMonth" {{ if eq "NextMonth" .DateFilter }}selected="selected"{{ end }}>One Month from Now</option>
+		</select>
+		<button type="submit" class="btn btn-danger">Apply</button>
+		<button type="submit" name="reset" value="reset" class="btn btn-success">Reset</button>
+		</p>
+	</form>
 	<p>
 		<h1> All events in: {{.Query}} </h1>
 	</p>

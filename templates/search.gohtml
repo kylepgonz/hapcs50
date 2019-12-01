@@ -11,17 +11,29 @@
 <form method="POST">
 	<p>
 	<select id="category" name="category">
-		<option value="none" selected disabled>
+		<option value="none" {{ if eq "" .CatFilter }}selected="selected"{{ end }} disabled>
 			Filter by Category
 		</option>
-		<option value="Networking">Networking</option>
-		<option value="Food and Drinks">Food and Drinks</option>
-		<option value="Concert">Concert</option>
-		<option value="Sports">Sports</option>
-		<option value="Spiritual">Spritual</option>
-		<option value="Volunteer">Volunteer</option>
+		<option value="Networking" {{ if eq "Networking" .CatFilter }}selected="selected"{{ end }}>Networking</option>
+		<option value="Food and Drinks" {{ if eq "Food and Drinks" .CatFilter }}selected="selected"{{ end }}>Food and Drinks</option>
+		<option value="Concert" {{ if eq "Concert" .CatFilter }}selected="selected"{{ end }}>Concert</option>
+		<option value="Sports" {{ if eq "Sports" .CatFilter }}selected="selected"{{ end }}>Sports</option>
+		<option value="Spiritual" {{ if eq "Spiritual" .CatFilter }}selected="selected"{{ end }}>Spiritual</option>
+		<option value="Volunteer" {{ if eq "Volunteer" .CatFilter }}selected="selected"{{ end }}>Volunteer</option>
+	</select>
+	<select name="date">
+		<option value="none" {{ if eq "" .DateFilter }}selected="selected"{{ end }} disabled>
+			Filter by Date
+		</option>
+		<option value="Today" {{ if eq "Today" .DateFilter }}selected="selected"{{ end }}>Today</option>
+		<option value="Tomorrow" {{ if eq "Tomorrow" .DateFilter }}selected="selected"{{ end }}>Tomorrow</option>
+		<!-- <option value="ThisWeekend">This Weekend</option> -->
+		<option value="ThisWeek" {{ if eq "ThisWeek" .DateFilter }}selected="selected"{{ end }}>This Week</option>
+		<option value="NextWeek" {{ if eq "NextWeek" .DateFilter }}selected="selected"{{ end }}>One Week from Now</option>
+		<option value="NextMonth" {{ if eq "NextMonth" .DateFilter }}selected="selected"{{ end }}>One Month from Now</option>
 	</select>
 	<button type="submit" class="btn btn-danger">Apply</button>
+	<button type="submit" name="reset" value="reset" class="btn btn-success">Reset</button>
 	</p>
 </form>
 	<p>
