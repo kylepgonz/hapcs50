@@ -9,8 +9,9 @@ import (
 )
 
 type indexContextData struct {
-	Events []Event
-	Today  time.Time
+	Events    []Event
+	AllEvents []Event
+	Today     time.Time
 }
 
 var randomEvents []Event
@@ -21,8 +22,9 @@ func indexController(w http.ResponseWriter, r *http.Request) {
 	rand.Shuffle(len(allEvents), func(i, j int) { randomEvents[i], randomEvents[j] = randomEvents[j], randomEvents[i] })
 	var eventsList = randomEvents[0:6]
 	contextData := indexContextData{
-		Events: eventsList,
-		Today:  time.Now(),
+		Events:    eventsList,
+		AllEvents: allEvents,
+		Today:     time.Now(),
 	}
 
 	tmpl["index"].Execute(w, contextData)
