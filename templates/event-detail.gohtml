@@ -36,6 +36,7 @@
 			</ul>
 		{{end}}
 		<!-- </div> -->
+		<p>
 		<section>
 			<p>RSVP form:</p>
 			<form method="POST">
@@ -43,6 +44,10 @@
 			<input type="submit">
 			</form>
 		</section>
+		</p>
+		<p>
+			<a href="/events/{{.Event.ID}}/support">Donate</a>
+		</p>
 
 		{{if .FormErrors}}
 		<section class="errors">
