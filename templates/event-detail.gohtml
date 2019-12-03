@@ -46,7 +46,7 @@
 		</section>
 		</p>
 		<p>
-			<a href="/events/{{.Event.ID}}/support" onclick="ga('send', 'Support', 'Click');">Donate</a>
+			<a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a>
 		</p>
 
 		{{if .FormErrors}}

@@ -190,7 +190,7 @@ func init() {
 			Date:        time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:       "http://giphygifs.s3.amazonaws.com/media/JBP8eDB1rhIv6/giphy.gif",
 			Location:    "SOM Quad",
-			Category:    "Food and Drink",
+			Category:    "Food and Drinks",
 			Attending:   []string{"homer.simpson@yale.edu"},
 			Description: "Bring your baster to the business school for this big bird cookoff!",
 		},

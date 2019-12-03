@@ -43,36 +43,36 @@
 	</div>
 </div>
 <div class="body">
-
+<p>
 <h1>What are you looking for?</h1>
-
+</p>
 <div class="card-deck">
   <div class="card">
-    <a href="/search/category?q=Networking"><img src="https://i.imgur.com/4Mu92bq.png" title="source: imgur.com" img class="card-img-top"/></a>
+    <a href="/search/category?q=Networking"><img src="https://i.imgur.com/4Mu92bq.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Networking" class="button.footer">Networking</a>
     </div>
   </div>
   <div class="card">
-    <a href="/search/category?q=Food+and+Drinks"><img src="https://i.imgur.com/GdJL8O7.png" title="source: imgur.com" img class="card-img-top"/></a>
+    <a href="/search/category?q=Food+and+Drinks"><img src="https://i.imgur.com/GdJL8O7.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Food+and+Drinks" class="button.footer">Food and Drinks</a>
     </div>
   </div>
   <div class="card">
-	<a href="/search/category?q=Concert"><img src="https://i.imgur.com/ZkAZtdE.png" title="source: imgur.com" img class="card-img-top"/></a>
+	<a href="/search/category?q=Concert"><img src="https://i.imgur.com/ZkAZtdE.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Concert" class="button.footer">Concert</a>
     </div>
   </div>
   <div class="card">
-	<a href="/search/category?q=Sports"><img src="https://i.imgur.com/eqxpZ4d.png" title="source: imgur.com" img class="card-img-top"/></a>
+	<a href="/search/category?q=Sports"><img src="https://i.imgur.com/eqxpZ4d.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Sports" class="button.footer">Sports</a>
     </div>
   </div>
   <div class="card">
-	<a href="/search/category?q=Volunteer"><img src="https://i.imgur.com/CoXpp1d.png" title="source: imgur.com" img class="card-img-top"/></a>
+	<a href="/search/category?q=Volunteer"><img src="https://i.imgur.com/CoXpp1d.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Volunteer" class="button.footer">Volunteer</a>
     </div>
@@ -83,30 +83,48 @@
 		<h1> Check out some fun events </h1>
 	</p>
 	<p>
-		<!-- <div class="grid-container"> -->
 		<div class="container-fluid">
 		<div class="row">
 		{{range .Events}}
-			<!-- <div class="grid-item"> -->
 					<div class="col-lg-4 col-md-12">
 					<a href="/events/{{.ID}}">
-					<!-- <img src="{{.Image}}" class="grid"> -->
-					<img class="gif grid" src="{{.Image}}">
-					<span>
-					{{.Title}}</a>
-					</span>
+					<img class="gif grid" alt="event gif" src="{{.Image}}">
+					<h5 style="margin-bottom: 0px !important;">
+					{{.Title}}
+				</h5>
+					</a>
 					<p>
-					at
-					<time>
-						{{.Date.Format "01/02/2006 03:04:05pm"}}
-					</time>
+					<small class="text-secondary"> on {{.Date.Format "Monday, Jan 02, 2006 03:04pm"}}</small>
 				</p>
 				</div>
 		{{end}}
 	</div>
 		</div>
 	</p>
+	<p>
+		<h1>All Events</h1>
+	</p>
+	<!-- <div class="row no-gutters"> -->
+	<div class="card-columns">
+			{{range .AllEvents}}
+			<!-- <div class="col-md-6"> -->
+			<div class="card">
+					<div class="card-body">
+						<small class="text-secondary">{{.Date.Format "Monday, Jan 02, 2006 03:04pm"}}</small>
+						<h5 class="card-title">
+						<a href="/events/{{.ID}}">
+						{{.Title}}
+						</a>
+					</h5>
+						<p class="card-text">{{.Description}}
+							<small class="text-muted">
+							at {{.Location}} </small></p>
+							<a href="/search/category?q={{.Category}}"><button type="button"  class="btn btn-danger">{{.Category}}</button></a>
+						</div>
+				</div>
+				<!-- </div> -->
+		{{end}}
+	</div>
 	</p>
 </div>
 {{end}}
-<!-- <div id="top-of-site-pixel-anchor"></div> -->
