@@ -13,9 +13,19 @@ func getRoutes() chi.Router {
 
 	r := chi.NewRouter()
 	r.Get("/", indexController)
-	r.Get("/about", reportHandler)
-	r.Get("/aboutus", aboutHandler)
+	r.Get("/report", reportHandler)
+	r.Get("/about", aboutHandler)
 	r.Get("/events/{eventID:[0-9]+}", eventDetailController)
+	r.Post("/events/{eventID:[0-9]+}", eventDetailController)
+	r.Get("/events/new", eventCreateController)
+	r.Get("/api/events", apiEventListController)
+	r.Get("/api/events/{eventID:[0-9]+}", apiEventController)
+	r.Post("/events/new", eventCreateController)
+	r.Get("/search", searchController)
+	r.Post("/search", searchController)
+	r.Get("/search/category", searchCategoryController)
+	r.Post("/search/category", searchCategoryController)
+
 	addStaticFileServer(r, "/static/", "staticfiles")
 	return r
 }

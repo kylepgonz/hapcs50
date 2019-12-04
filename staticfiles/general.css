@@ -1,7 +1,7 @@
 body {
   background-color: #f9f5f2;
   color: d43434;
-  font-family: 'Verdana';
+  font-family: 'Verdana'!important;
   margin: 0;
 }
 .titlescreen {
@@ -17,21 +17,21 @@ body {
   color: black;
 }
 header {
-/*  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #000d2d;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;*/
 }
 h1 {
   padding-top: 20px;
   color: #d43434;
   font-family: 'Fredoka One';
+  display: -webkit-flex;
+  display: flex;
+  -webkit-flex-wrap: wrap;
+  flex-wrap: wrap;
+  -webkit-align-content: center;
+  align-content: center;
 }
 h1.normal{
-  margin-top: 80px;
+  margin-top: 80px
+  align-content: center;
 }
 h2 {
   color: #d43434;
@@ -127,6 +127,14 @@ ul {
   color: black;
 }
 
+.card {
+  display: grid;
+  grid-gap: 0px;
+  grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+  padding: 0px;
+  background-color: #f9f5f2;
+}
+
 .grid-container {
   display: grid;
   grid-gap: 0px;
@@ -137,7 +145,7 @@ ul {
   background-color: white;
 }
 .grid-item {
-  padding: 10px;
+  padding: 20px;
   font-size: 15px;
   text-align: center;
 }
@@ -186,10 +194,176 @@ ul {
   }
 }
 
+video.video-fluid{
+  width: 100%;
+  height: 18em;
+  object-fit: cover;
+}
+.carousel-inner{
+  height: 18em;
+}
+
+li.nav-item {
+  color: white;
+}
+
 /* #top-of-site-pixel-anchor{
   position: absolute;
   width: 1px;
   height: 1px;
   top: 500px;
   left: 0;
+} */
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-control-underlined {
+  border-width: 0;
+  border-bottom-width: 1px;
+  border-radius: 0;
+  padding-left: 0;
+}
+.masthead {
+  height: 100vh;
+  min-height: 500px;
+  background-image: url('https://i.imgur.com/LDdILxD.jpg?1');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.card-profile {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: auto;
+  text-align: center;
+  font-family: Fredoka One;
+  transition: 0.3s;
+  width: 40%;
+}
+
+.card-profile:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.card-profile-container {
+  padding: 2px 16px;
+}
+
+.title-profile {
+  color: grey;
+  font-size: 18px;
+}
+
+button-profile {
+  border: none;
+  outline: 0;
+  display: inline-block;
+  padding: 8px;
+  color: white;
+  background-color: #d43434;
+  text-align: center;
+  cursor: pointer;
+  width: 100%;
+  font-size: 18px;
+}
+
+a-profile {
+  text-decoration: none;
+  font-size: 22px;
+  color: black;
+}
+
+button-profile:hover, a:hover {
+  opacity: 0.7;
+}
+
+.profile-grid-container {
+  display: flex;
+  grid-gap: 0px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  padding: 0px;
+  flex-wrap: wrap
+}
+
+input.search[type=text] {
+-webkit-transition: all 0.4s ease-in-out !important;
+transition: all 0.4s ease-in-out !important;
+width:10em !important
+}
+
+input.search[type=text]:focus  {
+outline:none !important;
+box-shadow:none !important;
+border-bottom: 1px solid red !important;
+box-shadow: 0 1px 0 0 #f48fb1;
+}
+
+@media (min-width: 980px) {
+  input.search[type=text]:focus  {
+  width:30em !important;
+  outline:none !important;
+  box-shadow:none !important;
+  border-bottom: 1px solid red !important;
+  box-shadow: 0 1px 0 0 #f48fb1;
+  }
+}
+
+@media (max-width: 790px) {
+  .body {
+    padding: 0;
+    padding-top: 100px;
+  }
+  .card-columns {
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
+  }
+}
+
+
+.card-img-top {
+    width: 100%;
+    height: 13em;
+    object-fit: cover;
+}
+
+
+@media (min-width: 48em) {
+    .card-columns {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+    }
+}
+
+@media (min-width: 62em) {
+    .card-columns {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+    }
+}
+
+@media (min-width: 90em) {
+    .card-columns {
+        -webkit-column-count: 4;
+        -moz-column-count: 4;
+        column-count: 4;
+    }
+}
+
+/* overwriting that codepen stuff */
+.checkbox:before {
+  left: 2px !important;
+  width: 12px !important;
+  height: 6px !important;
+  }
+/* @font-face {
+  font-family: 'FontAwesome';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.eot?#iefix') format('embedded-opentype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.woff') format('woff'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.ttf') format('truetype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.svg#FontAwesome') format('svg');
+  font-weight: normal;
+  font-style: normal;
 } */

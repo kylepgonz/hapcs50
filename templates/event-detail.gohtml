@@ -1,38 +1,91 @@
 {{template "layout" .}}
 
 {{define "title"}}
-	{{.Title}}
+	{{.Event.Title}}
 {{end}}
 
 {{define "content"}}
+
+
 <div class="body">
 	<p>
-			<!-- <div class="grid-item"> -->
-					<img src="{{.Image}}">
-					<p>
-					Title: <a href="/events/{{.ID}}">{{.Title}}</a>
-					</p>
-					<p>
-					Time:
-					<time>
-						{{.Date.Format "2006-01-02 15:04"}}
-					</time>
-					</p>
-					<p>
-						Location: {{.Location}}
-					</p>
-					<p>
-						Category: {{.Category}}
-					</p>
-						Attendees:
-					{{range .Attending}}
-						<ul>
-							<li>
-							{{.}}
-							</li>
-						</ul>
-					{{end}}
-			<!-- </div> -->
+		<!-- <div class="grid-item"> -->
+		<img src="{{.Event.Image}}">
+		<h1>
+			<a href="/events/{{.Event.ID}}">{{.Event.Title}}</a>
+		</h1>
+		<p>
+			Time:
+			<time>
+				{{.Event.Date.Format "2006-01-02 15:04"}}
+			</time>
+		</p>
+		<p>
+			Location: {{.Event.Location}}
+		</p>
+		<p>
+			Category: {{.Event.Category}}
+		</p>
+		<p>
+			Description: {{.Event.Description}}
+		</p>
+			Attendees:
+			{{range .Event.Attending}}
+			<ul>
+				<li>
+				{{.}}
+				</li>
+			</ul>
+		{{end}}
+		<!-- </div> -->
+		<p>
+		<section>
+			<p>RSVP form:</p>
+			<form method="POST">
+			<input type="email" name="email">
+			<input type="submit">
+			</form>
+		</section>
+		</p>
+		<p>
+			<a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a>
+		</p>
+
+	<div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 300px;">
+  <!-- Position it -->
+  <div style="position: fixed; right:0; top:100px; z-index: 999999">
+		{{if .FormErrors}}
+		<div class="toast" id="message" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000" style="width: 100%;">
+			<div class="toast-header bg-danger text-white">
+				<strong class="mr-auto">Hap</strong>
+				<small class="text-white">Error</small>
+				<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="toast-body">
+				{{.FormErrors}}
+			</div>
+		</div>
+		{{end}}
+
+		{{if .FormMessages}}
+		<div class="toast" data-autohide="false" id="message" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000" style="width:100%;">
+		  <div class="toast-header bg-success text-white">
+		    <strong class="mr-auto">Hap</strong>
+		    <small class="text-white">Success</small>
+		    <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+		      <span aria-hidden="true">&times;</span>
+		    </button>
+		  </div>
+		  <div class="toast-body">
+				{{.FormMessages}}
+		  </div>
+		</div>
+	</div>
+</div>
+		{{end}}
 	</p>
 </div>
+
 {{end}}

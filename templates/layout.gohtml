@@ -8,9 +8,9 @@
 
       <!-- Bootstrap CSS -->
       <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
       <link href="/static/general.css" rel="stylesheet" type="text/css">
       <link href="https://fonts.googleapis.com/css?family=Fredoka+One&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 
       <!-- Global site tag (gtag.js) - Google Analytics -->
       <script async src="https://www.googletagmanager.com/gtag/js?id=UA-151590889-1"></script>
@@ -18,31 +18,43 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-      gtag('config', 'UA-151590889-1');
+
+      gtag('config', 'UA-151590889-1', { 'optimize_id': 'GTM-NF555WP'});
       </script>
+      <!-- END Google Analytics -->
 
       <title>{{template "title" .}}</title>
     </head>
     <body>
       <header>
-         <nav id="navbar"  class="navbar navbar-expand-lg fixed-top navbar-light">
+         <nav id="navbar"  class="navbar navbar-expand-md fixed-top navbar-light">
             <a class="navbar-brand" href="/">
-            <img class="logo" src="/static/logo.png" alt="">
+            <img id="logo" class="logo" src="/static/logo.png" alt="">
             </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="nav navbar-nav nav-flex-icons ml-auto">
+            <ul class="nav align-items-center navbar-nav nav-flex-icons ml-auto">
                <li class="nav-item">
-                  <div class="input-group">
-                     <input type="text" class="form-control" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
-                     <div class="input-group-append">
-                        <button class="btn btn-outline-danger" type="button" id="button-addon2">Go</button>
+                 <form method="get" action="/search">
+                 <div class="clearfix d-sm-inline-block mr-1">
+                   <div id="search" class="nav-link bg-transparent rounded rounded-pill shadow-sm">
+                    <div class="input-group">
+                       <input type="text" name="q" autocomplete="off" class="search search-box border-0 bg-transparent" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+                       <div class="input-group-append">
+                        <button id="button-addon2" type="submit" class="btn p-0 pr-1 bg-transparent btn-link text-danger"><i class="fa fa-search"></i></button>
+                       </div>
                      </div>
+                     </div>
+                  </div>
+                  </form>
                </li>
                <li class="nav-item">
-               <a class="nav-link" href="/aboutus"><i class="fas fa-comments"></i> <span class="clearfix d-none d-sm-inline-block">About</span></a>
+               		<a class="nav-link" href="/events/new"> <span class="clearfix d-sm-inline-block">Create Event</span></a>
+               </li>
+               <li class="nav-item">
+               <a class="nav-link" href="/about"><span class="clearfix d-sm-inline-block">About</span></a>
                </li>
                <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -50,50 +62,37 @@
                Sprints
                </a>
                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownMenuLink">
-               <a class="dropdown-item" href="/about">Sprint 1</a>
-               <a class="dropdown-item" href="/about?report=2">Sprint 2</a>
-               <a class="dropdown-item" href="/about?report=3">Sprint 3</a>
+               <a class="dropdown-item" href="/report?sprint=1">Sprint 1</a>
+               <a class="dropdown-item" href="/report?sprint=2">Sprint 2</a>
+               <a class="dropdown-item" href="/report?sprint=3">Sprint 3</a>
                </div>
                </li>
             </ul>
             </div>
          </nav>
       </header>
-
-
             <div>
                 {{template "content" .}}
             </div>
             <footer>
-    <!---           <a href="/aboutus">
+              <a href="/about">
                <button type="button" class="footer">
             		    About
                 </button>
               </a>
-              <a href="/about">
+              <a href="/">
                 <button type="button" class="footer">
-                    Sprint 1
+                    Home
                 </button>
               </a>
-              <a href="/about?report=2">
-                <button type="button" class="footer">
-                    Sprint 2
-                </button>
-              </a>
-              <a href="/about?report=3">
-                <button type="button" class="footer">
-                    Sprint 3
-                </button>
-              </a>
-      --->
             </footer>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script>
+      $('.toast').toast('show');
+    </script>
     </body>
 </html>
 {{end}}
