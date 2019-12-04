@@ -52,9 +52,9 @@
                <li class="nav-item">
                		<a class="nav-link" href="/events/new"> <span class="clearfix d-sm-inline-block">Create Event</span></a>
                </li>
-               <li class="nav-item">
+               <!-- <li class="nav-item">
                <a class="nav-link" href="/about"><span class="clearfix d-sm-inline-block">About</span></a>
-               </li>
+               </li> -->
                <li class="nav-item dropdown">
                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown"
                   aria-haspopup="true" aria-expanded="false">
@@ -74,16 +74,12 @@
                 {{template "content" .}}
             </div>
             <footer>
-              <a href="/about">
-               <button type="button" class="footer">
+               <button type="button" class="footer" onclick="location.href='/';">
             		    About
                 </button>
-              </a>
-              <a href="/">
-                <button type="button" class="footer">
+                <button type="button" class="footer" onclick="location.href='/';">
                     Home
                 </button>
-              </a>
             </footer>
 
     <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
