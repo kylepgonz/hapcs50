@@ -1,7 +1,7 @@
 {{template "layout" .}}
 
 {{define "title"}}
-	My eventbrite clone
+	Hap - Never Miss a Thing
 {{end}}
 
 {{define "content"}}
@@ -43,46 +43,52 @@
 	</div>
 </div>
 <div class="body">
-<p>
+	<p>
+		<span></span>
+	</p>
 	<h1>What are you looking for?</h1>
-</p>
+	<p>
+		<span></span>
+	</p>
 <div class="card-deck">
-  <div class="card">
-    <a href="/search/category?q=Networking"><img src="https://i.imgur.com/4Mu92bq.png" class="card-img-top" title="source: imgur.com"/></a>
+  <div class="card bg-white">
+    <a href="/search/category?q=Networking"><img src="https://i.imgur.com/4Mu92bq.png" class="card-img-top " title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Networking" class="button.footer">Networking</a>
     </div>
   </div>
-  <div class="card">
+  <div class="card bg-white">
     <a href="/search/category?q=Food+and+Drinks"><img src="https://i.imgur.com/GdJL8O7.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Food+and+Drinks" class="button.footer">Food and Drinks</a>
     </div>
   </div>
-  <div class="card">
+  <div class="card bg-white">
 	<a href="/search/category?q=Music+and+Dance"><img src="https://i.imgur.com/ZkAZtdE.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Music+and+Dance" class="button.footer">Music and Dance</a>
     </div>
   </div>
-  <div class="card">
+  <div class="card bg-white">
 	<a href="/search/category?q=Sports"><img src="https://i.imgur.com/eqxpZ4d.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Sports" class="button.footer">Sports</a>
     </div>
   </div>
-  <div class="card">
+  <div class="card bg-white">
 	<a href="/search/category?q=Volunteerism"><img src="https://i.imgur.com/CoXpp1d.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
       <a href="/search/category?q=Volunteerism" class="button.footer">Volunteerism</a>
     </div>
   </div>
 </div>
-
 	<p>
-		<h1> Check out some fun events </h1>
+		<span></span>
 	</p>
+		<h1> Check out some fun events </h1>
 	<p>
+		<span></span>
+	</p>
 		<div class="container-fluid">
 		<div class="row">
 		{{range .Events}}
@@ -94,15 +100,18 @@
 				</h5>
 					</a>
 					<p>
-					<small class="text-secondary"> on {{.Date.Format "Monday, Jan 02, 2006 03:04pm"}}</small>
+					<small class="text-secondary"> on {{.Date.Format "2011-11-18T14:54:39.929Z"}}</small>
 				</p>
 				</div>
 		{{end}}
 	</div>
 		</div>
-	</p>
 	<p>
+		<span></span>
+	</p>
 		<h1>All Events</h1>
+	<p>
+		<span></span>
 	</p>
 	<!-- <div class="row no-gutters"> -->
 	<div class="card-columns">
@@ -110,18 +119,18 @@
 			<!-- <div class="col-md-6"> -->
 			<div class="card">
 					<div class="card-body">
-						<small class="text-secondary"> <time datetime="Monday, Jan 02, 2006 03:04pm"> {{.Date.Format "Monday, Jan 02, 2006 03:04pm"}}</time></small>
+						<small class="text-secondary">{{.Date.Format "Monday, Jan 02, 2006 03:04pm"}}</small>
 						<h4 class="card-title">
 						{{.Title}}
 					</h4>
 						<p class="card-text">{{.Description}}
-							<small class="text-muted">
-							at {{.Location}} </small></p>
+							<a href="/search?q={{.Location}}"><small class="text-muted">
+							at {{.Location}} </small></a></p>
 							<p>
 							<a href="/search/category?q={{.Category}}">Category: {{.Category}}</a>
 							</p>
 							<p>
-								<a href="/events/{{.ID}}"><button type="button"  class="btn btn-danger">More Info</button></a>
+								<button type="button" onclick="location.href='/events/{{.ID}}';" class="btn btn-danger">More Info</button>
 							</p>
 						</div>
 				</div>

@@ -207,14 +207,6 @@ li.nav-item {
   color: white;
 }
 
-/* #top-of-site-pixel-anchor{
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  top: 500px;
-  left: 0;
-} */
-
 .form-control:focus {
   box-shadow: none;
 }
@@ -355,15 +347,22 @@ box-shadow: 0 1px 0 0 #f48fb1;
     }
 }
 
+/* overwriting bootstrap toast */
+.toast {
+  max-width: none !important;
+}
+.toastcontainer {
+  width: 80%
+}
+.toastarea {
+  position: fixed;
+  top: 100px;
+  width: 100%;
+  z-index: 99999;
+}
 /* overwriting that codepen stuff */
 .checkbox:before {
   left: 2px !important;
   width: 12px !important;
   height: 6px !important;
   }
-/* @font-face {
-  font-family: 'FontAwesome';
-  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.eot?#iefix') format('embedded-opentype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.woff') format('woff'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.ttf') format('truetype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.svg#FontAwesome') format('svg');
-  font-weight: normal;
-  font-style: normal;
-} */
