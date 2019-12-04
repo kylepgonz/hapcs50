@@ -288,7 +288,6 @@ button-profile:hover, a:hover {
   flex-wrap: wrap
 }
 
-<<<<<<< HEAD
 input.search[type=text] {
 -webkit-transition: all 0.4s ease-in-out !important;
 transition: all 0.4s ease-in-out !important;
@@ -296,15 +295,6 @@ width:10em !important
 }
 
 input.search[type=text]:focus  {
-=======
-input[type=text] {
--webkit-transition: all 0.4s ease-in-out;
-transition: all 0.4s ease-in-out;
-width:10em
-}
-
-input[type=text]:focus  {
->>>>>>> a4a7e94834a5f780c54ba03d78ecc8a2b58ddb7c
 outline:none !important;
 box-shadow:none !important;
 border-bottom: 1px solid red !important;
@@ -312,22 +302,12 @@ box-shadow: 0 1px 0 0 #f48fb1;
 }
 
 @media (min-width: 980px) {
-<<<<<<< HEAD
   input.search[type=text]:focus  {
   width:30em !important;
-=======
-  input[type=text]:focus  {
-  width:30em;
->>>>>>> a4a7e94834a5f780c54ba03d78ecc8a2b58ddb7c
   outline:none !important;
   box-shadow:none !important;
   border-bottom: 1px solid red !important;
   box-shadow: 0 1px 0 0 #f48fb1;
-<<<<<<< HEAD
-=======
-  /* -webkit-transition: width 0.4s ease-in-out !important;
-  transition: width 0.4s ease-in-out !important; */
->>>>>>> a4a7e94834a5f780c54ba03d78ecc8a2b58ddb7c
   }
 }
 
@@ -374,7 +354,6 @@ box-shadow: 0 1px 0 0 #f48fb1;
         column-count: 4;
     }
 }
-<<<<<<< HEAD
 
 /* overwriting that codepen stuff */
 .checkbox:before {
@@ -388,7 +367,3 @@ box-shadow: 0 1px 0 0 #f48fb1;
   font-weight: normal;
   font-style: normal;
 } */
-=======
-@font-face { font-family: 'FontAwesome'; src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.eot?#iefix') format('embedded-opentype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.woff') format('woff'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.ttf') format('truetype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.svg#FontAwesome') format('svg'); font-weight: normal; font-style: normal; }
-
->>>>>>> a4a7e94834a5f780c54ba03d78ecc8a2b58ddb7c
