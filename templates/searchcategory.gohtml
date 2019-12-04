@@ -1,0 +1,57 @@
+{{template "layout" .}}
+
+{{define "title"}}
+	My eventbrite clone
+{{end}}
+
+{{define "content"}}
+
+<script src="/static/myScript.js"></script>
+<div class="body">
+	<form method="POST">
+		<p>
+		<select name="date">
+			<option value="none" {{ if eq "" .DateFilter }}selected="selected"{{ end }} disabled>
+				Filter by Date
+			</option>
+			<option value="Today" {{ if eq "Today" .DateFilter }}selected="selected"{{ end }}>Today</option>
+			<option value="Tomorrow" {{ if eq "Tomorrow" .DateFilter }}selected="selected"{{ end }}>Tomorrow</option>
+			<!-- <option value="ThisWeekend">This Weekend</option> -->
+			<option value="ThisWeek" {{ if eq "ThisWeek" .DateFilter }}selected="selected"{{ end }}>This Week</option>
+			<option value="NextWeek" {{ if eq "NextWeek" .DateFilter }}selected="selected"{{ end }}>One Week from Now</option>
+			<option value="NextMonth" {{ if eq "NextMonth" .DateFilter }}selected="selected"{{ end }}>One Month from Now</option>
+		</select>
+		<button type="submit" class="btn btn-danger">Apply</button>
+		<button type="submit" name="reset" value="reset" class="btn btn-success">Reset</button>
+		</p>
+	</form>
+	<p>
+		<h1> All events in: {{.Query}} </h1>
+	</p>
+	<p>
+		<div class="grid-container">
+		{{range .Events}}
+			<div class="grid-item">
+					<a href="/events/{{.ID}}">
+					<!-- <img src="{{.Image}}" class="grid"> -->
+					<img class="gif grid" src="{{.Image}}">
+					<span>
+					{{.Title}}</a>
+					</span>
+					<span>
+					at
+					<time>
+						{{.Date.Format "01/02/2006 03:04:05pm"}}
+					</time>
+				</span>
+				<span>
+					at {{.Location}}
+				</span>
+			</div>
+		{{end}}
+		</div>
+	</p>
+	</p>
+</div>
+{{end}}
+<!-- <div id="top-of-site-pixel-anchor"></div> -->
