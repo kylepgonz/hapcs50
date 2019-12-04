@@ -1,8 +1,9 @@
 package main
 
 import (
+	"crypto/sha256"
+	"encoding/hex"
 	"errors"
-	"log"
 	"sync"
 	"time"
 )
@@ -16,9 +17,16 @@ var allEventsMutex = &sync.Mutex{}
 var categoryExists = map[string]bool{
 	"Networking":      true,
 	"Food and Drinks": true,
-	"Concert":         true,
+	"Music and Dance": true,
 	"Sports":          true,
-	"Volunteer":       true,
+	"Volunteerism":    true,
+}
+var gifTypeAllowed = map[string]bool{
+	"png":  true,
+	"jpg":  true,
+	"jpeg": true,
+	"gif":  true,
+	"gifv": true,
 }
 
 // Event - encapsulates information about an event
@@ -70,11 +78,19 @@ func addAttendee(id int, email string) error {
 	for i := 0; i < len(allEvents); i++ {
 		if allEvents[i].ID == id {
 			allEvents[i].Attending = append(allEvents[i].Attending, email)
-			log.Println(allEvents[i].Attending)
+			// log.Println(allEvents[i].Attending)
 			return nil
 		}
 	}
 	return errors.New("No such event")
+}
+
+func getConfirmationCode(s string) string {
+	hash := sha256.New()
+	hash.Write([]byte(s))
+	md := hash.Sum(nil)
+	mdStr := hex.EncodeToString(md)
+	return mdStr[:7]
 }
 
 func addEvent(event Event) {
@@ -140,7 +156,7 @@ func init() {
 			Date:        time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:       "https://media.giphy.com/media/JD0PRlEsWNkeQ/giphy.gif",
 			Location:    "Yale School of Music",
-			Category:    "Volunteer",
+			Category:    "Volunteerism",
 			Attending:   []string{"homer.simpson@yale.edu"},
 			Description: "Attend a chorale presentation from Yale School of music and proceeds will be donated to charities in New Haven",
 		},
@@ -180,7 +196,7 @@ func init() {
 			Date:        time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:       "http://giphygifs.s3.amazonaws.com/media/10gZNwuUuer5aU/giphy.gif",
 			Location:    "Divinity School",
-			Category:    "Concert",
+			Category:    "Music and Dance",
 			Attending:   []string{"homer.simpson@yale.edu"},
 			Description: "If you like to jiggle what your moma gave ya, don’t miss this pow-wow! We’ll enjoy some live tunes to booty shake to, courtesy of the New Haven Jive Tribe",
 		},
@@ -200,7 +216,7 @@ func init() {
 			Date:        time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:       "https://media.giphy.com/media/cLcxtL1z8t8oo/giphy.gif",
 			Location:    "East Rock Park",
-			Category:    "Concert",
+			Category:    "Music and Dance",
 			Attending:   []string{"homer.simpson@yale.edu"},
 			Description: "Join us for the 5 mile mutt strut. Just bring your pooch & pozzie  to the park for playful parade.",
 		},

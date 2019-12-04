@@ -1,7 +1,7 @@
 body {
   background-color: #f9f5f2;
   color: d43434;
-  font-family: 'Verdana';
+  font-family: 'Verdana'!important;
   margin: 0;
 }
 .titlescreen {
@@ -17,13 +17,6 @@ body {
   color: black;
 }
 header {
-/*  padding-top: 10px;
-  padding-bottom: 10px;
-  background-color: #000d2d;
-  position: fixed;
-  left: 0;
-  top: 0;
-  width: 100%;*/
 }
 h1 {
   padding-top: 20px;
@@ -295,13 +288,13 @@ button-profile:hover, a:hover {
   flex-wrap: wrap
 }
 
-input[type=text] {
--webkit-transition: all 0.4s ease-in-out;
-transition: all 0.4s ease-in-out;
-width:10em
+input.search[type=text] {
+-webkit-transition: all 0.4s ease-in-out !important;
+transition: all 0.4s ease-in-out !important;
+width:10em !important
 }
 
-input[type=text]:focus  {
+input.search[type=text]:focus  {
 outline:none !important;
 box-shadow:none !important;
 border-bottom: 1px solid red !important;
@@ -309,14 +302,12 @@ box-shadow: 0 1px 0 0 #f48fb1;
 }
 
 @media (min-width: 980px) {
-  input[type=text]:focus  {
-  width:30em;
+  input.search[type=text]:focus  {
+  width:30em !important;
   outline:none !important;
   box-shadow:none !important;
   border-bottom: 1px solid red !important;
   box-shadow: 0 1px 0 0 #f48fb1;
-  /* -webkit-transition: width 0.4s ease-in-out !important;
-  transition: width 0.4s ease-in-out !important; */
   }
 }
 
@@ -363,5 +354,16 @@ box-shadow: 0 1px 0 0 #f48fb1;
         column-count: 4;
     }
 }
-@font-face { font-family: 'FontAwesome'; src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.eot?#iefix') format('embedded-opentype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.woff') format('woff'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.ttf') format('truetype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.svg#FontAwesome') format('svg'); font-weight: normal; font-style: normal; }
 
+/* overwriting that codepen stuff */
+.checkbox:before {
+  left: 2px !important;
+  width: 12px !important;
+  height: 6px !important;
+  }
+/* @font-face {
+  font-family: 'FontAwesome';
+  src: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.eot?#iefix') format('embedded-opentype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.woff') format('woff'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.ttf') format('truetype'), url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/fontawesome-webfontba72.svg#FontAwesome') format('svg');
+  font-weight: normal;
+  font-style: normal;
+} */

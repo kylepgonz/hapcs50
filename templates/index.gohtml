@@ -6,7 +6,7 @@
 
 {{define "content"}}
 
-<script src="/static/myScript.js"></script>
+
 <div class="titlescreen">
 	<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
 	  <ol class="carousel-indicators">
@@ -44,7 +44,7 @@
 </div>
 <div class="body">
 <p>
-<h1>What are you looking for?</h1>
+	<h1>What are you looking for?</h1>
 </p>
 <div class="card-deck">
   <div class="card">
@@ -60,9 +60,9 @@
     </div>
   </div>
   <div class="card">
-	<a href="/search/category?q=Concert"><img src="https://i.imgur.com/ZkAZtdE.png" class="card-img-top" title="source: imgur.com"/></a>
+	<a href="/search/category?q=Music+and+Dance"><img src="https://i.imgur.com/ZkAZtdE.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
-      <a href="/search/category?q=Concert" class="button.footer">Concert</a>
+      <a href="/search/category?q=Music+and+Dance" class="button.footer">Music and Dance</a>
     </div>
   </div>
   <div class="card">
@@ -72,9 +72,9 @@
     </div>
   </div>
   <div class="card">
-	<a href="/search/category?q=Volunteer"><img src="https://i.imgur.com/CoXpp1d.png" class="card-img-top" title="source: imgur.com"/></a>
+	<a href="/search/category?q=Volunteerism"><img src="https://i.imgur.com/CoXpp1d.png" class="card-img-top" title="source: imgur.com"/></a>
     <div class="card-body">
-      <a href="/search/category?q=Volunteer" class="button.footer">Volunteer</a>
+      <a href="/search/category?q=Volunteerism" class="button.footer">Volunteerism</a>
     </div>
   </div>
 </div>
@@ -110,21 +110,25 @@
 			<!-- <div class="col-md-6"> -->
 			<div class="card">
 					<div class="card-body">
-						<small class="text-secondary">{{.Date.Format "Monday, Jan 02, 2006 03:04pm"}}</small>
-						<h5 class="card-title">
-						<a href="/events/{{.ID}}">
+						<small class="text-secondary"> <time datetime="Monday, Jan 02, 2006 03:04pm"> {{.Date.Format "Monday, Jan 02, 2006 03:04pm"}}</time></small>
+						<h4 class="card-title">
 						{{.Title}}
-						</a>
-					</h5>
+					</h4>
 						<p class="card-text">{{.Description}}
 							<small class="text-muted">
 							at {{.Location}} </small></p>
-							<a href="/search/category?q={{.Category}}"><button type="button"  class="btn btn-danger">{{.Category}}</button></a>
+							<p>
+							<a href="/search/category?q={{.Category}}">Category: {{.Category}}</a>
+							</p>
+							<p>
+								<a href="/events/{{.ID}}"><button type="button"  class="btn btn-danger">More Info</button></a>
+							</p>
 						</div>
 				</div>
 				<!-- </div> -->
 		{{end}}
 	</div>
-	</p>
 </div>
+
+<script src="/static/myScript.js"></script>
 {{end}}
