@@ -5,59 +5,109 @@
 {{end}}
 
 {{define "content"}}
-<div class="body">
-	<p>
 
-		<section>
-			<p>RSVP form:</p>
-			<form method="POST">
-				<label for="title">Title</label>
-				<input type="text" name="title">
-				<label for="location">Location</label>
-				<input type="text" name="location">
-				<label for="image">Image URL</label>
-				<input type="url" name="image">
-				<p>
-				<label for="category">Category</label>
-				</p>
-					<p>
-					<select name="category">
-						<option value="none" selected disabled hidden>
-			      	Select an Option
-			      </option>
-					  <option value="Networking">Networking</option>
-					  <option value="Food and Drinks">Food and Drinks</option>
-					  <option value="Concert">Concert</option>
-					  <option value="Sports">Sports</option>
-						<option value="Spiritual">Spritual</option>
-						<option value="Volunteer">Volunteer</option>
-					</select>
-					</p>
-				<label for="date">Date of event</label>
-				<input type="datetime-local" name="date" placeholder="YYYY-MM-DDTHH:MM">
+<section>
+<div class="smart-wrap">
+<div class="smart-forms smart-container wrap-2">
+<div class="form-header header-primary"><h4><i class="fa fa-pencil-square"></i>Create a HAP event</h4></div>           
+<div method="post" id="new_post" name="new_post"  action="" class="wpcf7-form" enctype="multipart/form-data">
 
-				<label for="description">Description</label>
-				<input type="text" name="description">
-				<input type="submit">
-			</form>
-		</section>
-
-		{{if .FormErrors}}
-		<section class="errors">
-			<h1 style="color:red;">
-			{{.FormErrors}}
-			</h1>
-		</section>
-		{{end}}
-
-		{{if .FormMessages}}
-		<section class="messages">
-			<h1 style="color:green;">
-			{{.FormMessages}}
-			</h1>
-		</section>
-		{{end}}
-
-	</p>
+<!--Section 1-->
+<div class="form-body">
+<div class="spacer-b30">
+<div class="tagline"><span>Who are you?</span></div>
 </div>
+<div class="row">
+<div class="section">
+<label for="name" class="field prepend-icon">
+<input type="text" name="Name" id="Name" class="gui-input" placeholder="Name">
+<label for="name" class="field-icon"><i class="fa fa-user"></i></label>  
+</label>
+</div>
+</div>                      
+<div class="section">
+<label for="useremail" class="field prepend-icon">
+<input type="email" name="useremail" id="useremail" class="gui-input" placeholder="Email address">
+<label for="useremail" class="field-icon"><i class="fa fa-envelope"></i></label>  
+</label>
+</div>
+
+<!-- Section 2 -->
+<div class="spacer-b30">
+<div class="tagline"><span>What's your event?</span></div> </div>
+<div class="row">
+<div class="section">
+<label for="eventname" class="field prepend-icon">
+<input type="text" name="Event Name" id="Event Name" class="gui-input" placeholder="Event Name">
+<label for="eventname" class="field-icon"><i class="fa fa-star"></i></label>  
+</label>
+</div>
+</div>
+<div class="section">
+<label for="short" class="field prepend-icon">
+<input type="short" name="description" id="description" class="gui-input" placeholder="Description">
+<label for="useremail" class="field-icon"><i class="fa fa-edit"></i></label>  
+</label>
+</div>
+
+<!-- Calendar -->
+<div class="section">
+<label for="short" class="field prepend-icon">
+<input type="datetime-local" name="date" id="description" class="gui-input" placeholder="Date and Time">
+<label for="date" class="field-icon"><i class="fa fa-calendar"></i></label>  
+</label>
+</div>
+
+<!-- Location -->
+<div class="section">
+<label for="short" class="field prepend-icon">
+<input type="short" name="description" id="description" class="gui-input" placeholder="Location">
+<label for="useremail" class="field-icon"><i class="fa fa-edit"></i></label>  
+</label>
+</div>
+
+<!-- Category -->  
+<div class="section">
+<label class="field select">
+<select id="language" name="language">
+<option value="">Select Event Category</option>
+<option value="FD">Food and Drinks</option>
+<option value="MD">Music and Dance</option>
+<option value="NT">Networking</option>
+<option value="VO">Volunteerism</option>
+</select>
+</div> 
+
+ <!-- Others --> 
+<div class="spacer-b30">
+<div class="tagline"><span>Make your event HAPpening!</span></div> </div>
+<div class="row">
+<div class="section">
+<label for="imageurl" class="field prepend-icon">
+<input type="text" name="Image URL" id="Image URL" class="gui-input" placeholder="Image URL">
+<label for="eventname" class="field-icon"><i class="fa fa-picture-o"></i></label> 
+</label>
+</div>
+
+ <!-- Footer -->
+<div class="spacer spacer-t10 spacer-b20"> </div>
+<div class="section">
+<p> You will not hold HAP liable for any untoward incident at the event you're registerting. </p>
+<div class="section">
+<div class="option-group field">
+<label class="option block">
+<input type="checkbox" name="parents" id="parents" value="parents">
+<span class="checkbox"></span> Yes, definitely        
+</label>
+</div>
+</div>
+<div class="form-footer">
+<button type="submit" class="button btn-primary"> Make this HAP-pen </button>
+<button type="reset" class="button"> Cancel </button>
+</div>
+</form>
+</div>
+</div>
+</section>
+ 
 {{end}}
