@@ -1,18 +1,26 @@
 body {
   background-color: #f9f5f2;
   color: d43434;
-  font-family: 'Verdana'!important;
+  font-family: 'Roboto', 'Verdana'!important;
   margin: 0;
+  scroll-snap-type: y mandatory;
 }
 .titlescreen {
+  scroll-snap-align: start;
   font-family: 'Fredoka One';
   font-size: 30px;
   text-align: center;
   color: #d43434;
   width: 100%;
-  margin-bottom: -100px;
+  scroll-snap-type: y mandatory;
 }
+
+::placeholder { /* Firefox, Chrome, Opera */
+    color: rgba(108,117,125); 
+}
+
 .body {
+  scroll-snap-align: center;
   padding: 100px;
   color: black;
 }
@@ -196,7 +204,7 @@ ul {
 
 video.video-fluid{
   width: 100%;
-  height: 18em;
+  height: 100%;
   object-fit: cover;
 }
 .carousel-inner{
@@ -365,4 +373,8 @@ box-shadow: 0 1px 0 0 #f48fb1;
   left: 2px !important;
   width: 12px !important;
   height: 6px !important;
+  }
+
+  html {
+    scroll-behavior: smooth;
   }

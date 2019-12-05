@@ -5,51 +5,46 @@
 {{end}}
 
 {{define "content"}}
-
+<script src="https://kit.fontawesome.com/88570b309c.js" crossorigin="anonymous"></script>
 
 <div class="titlescreen">
 	<div id="carouselExampleIndicators" class="carousel slide carousel-fade" data-ride="carousel">
-	  <ol class="carousel-indicators">
-	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-	    <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-	    <!-- <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
-	  </ol>
-	  <div class="carousel-inner">
-	    <div class="carousel-item active">
+	  <!-- <ol class="carousel-indicators">
+	    <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li> -->
+	    <!-- <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+	    <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> -->
+	  <!-- </ol> -->
+	  <div class="carousel-inner h-100 smooth-scroll list-unstyled">
+	    <!-- <div class="carousel-item active">
 	      <img src="/static/carousel.png" class="d-block w-100" alt="LM">
-	    </div>
-
-
-	    <div class="carousel-item">
+	    </div> -->
+	    <div class="carousel-item active">
 				<video class="video-fluid" autoplay loop muted>
 					<source src="/static/carousel.mp4" type="video/mp4">
 				</video>
 				<div class="mask rgba-indigo-light"></div>
 					<div class="carousel-caption">
 						<div class="animated fadeInRight">
-							<h3 class="h3-responsive">Let's have fun!</h3>
+							<a href="#test1">Let's Begin<p><i class="fas fa-chevron-down"></i></p></a>
 						</div>
 					</div>
 	    </div>
 	  </div>
-	  <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+	  <!-- <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
 	    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
 	    <span class="sr-only">Previous</span>
-	  </a>
-	  <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+	  </a> -->
+	  <!-- <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
 	    <span class="carousel-control-next-icon" aria-hidden="true"></span>
 	    <span class="sr-only">Next</span>
-	  </a>
+	  </a> -->
 	</div>
 </div>
-<div class="body">
-	<p>
-		<span></span>
-	</p>
+<div id="test1" class="body" style="margin-top:-80px; scroll-snap-type: y mandatory; scroll-snap-align: center;">
 	<h1>What are you looking for?</h1>
-	<p>
+	<!-- <p>
 		<span></span>
-	</p>
+	</p> -->
 <div class="card-deck">
   <div class="card bg-white">
     <a href="/search/category?q=Networking"><img src="https://i.imgur.com/4Mu92bq.png" class="card-img-top " title="source: imgur.com"/></a>
@@ -85,7 +80,7 @@
 	<p>
 		<span></span>
 	</p>
-		<h1> Check out some fun events </h1>
+		<h1> Check out what’s Hap’pening </h1>
 	<p>
 		<span></span>
 	</p>
@@ -100,7 +95,7 @@
 				</h5>
 					</a>
 					<p>
-					<small class="text-secondary"> on {{.Date.Format "2011-11-18T14:54:39.929Z"}}</small>
+					<small class="text-secondary"> on <time>{{.Date.Format "2011-11-18T14:54:39.929Z"}}</time></small>
 				</p>
 				</div>
 		{{end}}
@@ -113,15 +108,13 @@
 	<p>
 		<span></span>
 	</p>
-	<!-- <div class="row no-gutters"> -->
 	<div class="card-columns">
 			{{range .AllEvents}}
-			<!-- <div class="col-md-6"> -->
 			<div class="card">
 					<div class="card-body">
 						<small class="text-secondary">{{.Date.Format "Monday, Jan 02, 2006 03:04pm"}}</small>
 						<h4 class="card-title">
-						{{.Title}}
+						<a href="/events/{{.ID}}">{{.Title}}</a>
 					</h4>
 						<p class="card-text">{{.Description}}
 							<a href="/search?q={{.Location}}"><small class="text-muted">
@@ -134,7 +127,6 @@
 							</p>
 						</div>
 				</div>
-				<!-- </div> -->
 		{{end}}
 	</div>
 </div>
