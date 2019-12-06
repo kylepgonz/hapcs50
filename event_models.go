@@ -123,7 +123,7 @@ func init() {
 		Event{
 			ID:          2,
 			Title:       "BBQ party for hackers and nerds",
-			Date:        time.Date(2019, 12, 19, 19, 0, 0, 0, newYork),
+			Date:        time.Date(2019, 10, 19, 19, 0, 0, 0, newYork),
 			Image:       "http://i.imgur.com/7pe2k.gif",
 			Location:    "Sharon Oster's house",
 			Category:    "Food and Drinks",
@@ -141,7 +141,7 @@ func init() {
 			Description: "Something fun!",
 		},
 		Event{
-			ID:          4,
+			ID:          5,
 			Title:       "Cooking lessons for the busy business student",
 			Date:        time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:       "http://i.imgur.com/02KT9.gif",
@@ -151,7 +151,7 @@ func init() {
 			Description: "Something yummy!",
 		},
 		Event{
-			ID:          5,
+			ID:          4,
 			Title:       "Singing and Giving",
 			Date:        time.Date(2019, 12, 21, 19, 0, 0, 0, newYork),
 			Image:       "https://media.giphy.com/media/JD0PRlEsWNkeQ/giphy.gif",

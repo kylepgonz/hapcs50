@@ -19,12 +19,15 @@ type eventDetailContextData struct {
 type eventCreateContextData struct {
 	FormErrors   []string
 	FormMessages string
+	Redirect     []int
 }
 
 func eventCreateController(w http.ResponseWriter, r *http.Request) {
 	errorsWeFound := make([]string, 0)
 	email := make([]string, 0)
 	messagesWeFound := ""
+	redirect := make([]int, 0)
+
 	if r.Method == http.MethodPost {
 		//get data on event from create page
 		r.ParseForm()
@@ -87,13 +90,23 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 				http.Error(w, "Error in event creation!", http.StatusInternalServerError)
 				return
 			}
-			messagesWeFound += "Event has been successfully created!"
+			messagesWeFound += "Event has been successfully created! Redirecting you..."
+			redirect = append(redirect, id)
 		}
 	}
 	eventData := eventCreateContextData{
 		FormErrors:   errorsWeFound,
 		FormMessages: messagesWeFound,
+		Redirect:     redirect,
 	}
+	// if messagesWeFound != "" {
+	// 	println(id)
+	// 	foo := "/events/" + strconv.Itoa(id)
+	// 	println(foo)
+	// 	time.Sleep(2 * time.Second)
+	// 	http.Redirect(w, r, foo, http.StatusFound)
+	// 	return
+	// }
 	tmpl["event-new"].Execute(w, eventData)
 }
 
