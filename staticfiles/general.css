@@ -16,7 +16,7 @@ body {
 }
 
 ::placeholder { /* Firefox, Chrome, Opera */
-    color: rgba(108,117,125); 
+    color: rgba(108,117,125);
 }
 
 .body {
@@ -204,8 +204,7 @@ ul {
 
 video.video-fluid{
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 100vh;
 }
 .carousel-inner{
   height: 18em;
@@ -378,3 +377,7 @@ box-shadow: 0 1px 0 0 #f48fb1;
   html {
     scroll-behavior: smooth;
   }
+
+.is-blurred {
+  backdrop-filter: blur(2px) grayscale(100%);
+}
