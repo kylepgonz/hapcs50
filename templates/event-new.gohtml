@@ -19,21 +19,20 @@
 
 {{define "content"}}
 
-<section>
-	<form method="POST">
-		<div class="centered17"><label for="title">Title</label></div>
-		<div class="centered18"><input type="text" name="title"></div>
-		<div class="centered19"><label for="location">Location</label></div>
-		<div class="centered20"><input type="text" name="location"></div>
-		<div class="centered21"><label for="image">Image URL</label></div>
-		<div class="centered22"><input type="url" name="image"></div>
-		<div class="centered23"><label for="date">Date of event</label></div>
-		<div class="centered24"><input type="datetime-local" name="date" placeholder="YYYY-MM-DDTHH:MM"></div>
-		<div class="centered25"><input type="submit"></div>
-	</form>
-</section>
-
 <div class="body" id="body">
+	<section>
+		<form method="POST">
+			<div class="centered17"><label for="title">Title</label></div>
+			<div class="centered18"><input type="text" name="title"></div>
+			<div class="centered19"><label for="location">Location</label></div>
+			<div class="centered20"><input type="text" name="location"></div>
+			<div class="centered21"><label for="image">Image URL</label></div>
+			<div class="centered22"><input type="url" name="image"></div>
+			<div class="centered23"><label for="date">Date of event</label></div>
+			<div class="centered24"><input type="datetime-local" name="date" placeholder="YYYY-MM-DDTHH:MM"></div>
+			<div class="centered25"><input type="submit"></div>
+		</form>
+	</section>
 	<form method="POST" onsubmit="checkLiability();" >
 			<section>
 				<div class="smart-wrap">
