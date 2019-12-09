@@ -13,7 +13,7 @@
 		});
 		var timer = setTimeout(function() {
 				window.location='/events/{{.}}'
-		}, 3000);
+		}, 1000);
 </script>
 {{end}}
 
@@ -30,6 +30,16 @@
 			<div class="centered23"><label for="date">Date of event</label></div>
 			<div class="centered24"><input type="datetime-local" name="date" placeholder="YYYY-MM-DDTHH:MM"></div>
 			<div class="centered25"><input type="submit"></div>
+			<div class="section">
+			<label class="field select">
+			<select id="category" name="category">
+			<option value="Networking">Networking</option>
+			<option value="Food and Drinks">Food and Drinks</option>
+			<option value="Music and Dance">Music and Dance</option>
+			<option value="Sports">Sports</option>
+			<option value="Volunteerism">Volunteerism</option>
+			</select>
+			</div>
 		</form>
 	</section>
 </div>
