@@ -47,9 +47,9 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 		if err != nil {
 			errorsWeFound = append(errorsWeFound, "Wrong date format!")
 		}
-		if strings.HasSuffix(email[0], "@yale.edu") == false {
-			errorsWeFound = append(errorsWeFound, "@yale.edu only!")
-		}
+		// if strings.HasSuffix(email[0], "@yale.edu") == false {
+		// 	errorsWeFound = append(errorsWeFound, "@yale.edu only!")
+		// }
 		if id == -1 {
 			errorsWeFound = append(errorsWeFound, "No more event ids!")
 		}
