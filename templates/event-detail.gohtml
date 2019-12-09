@@ -8,27 +8,42 @@
 
 
 <div id="body" class="body">
-	<p>
+
+	<section>
 		<!-- <div class="grid-item"> -->
-		<img src="{{.Event.Image}}">
-		<h1>
-			<a href="/events/{{.Event.ID}}">{{.Event.Title}}</a>
-		</h1>
-		<p>
-			Time:
-			<time>
-				{{.Event.Date.Format "2006-01-02 15:04"}}
-			</time>
-		</p>
+		<h1 class="title">{{.Event.Title}}</h1>
 		<p>
 			Location: {{.Event.Location}}
 		</p>
 		<p>
+			<a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a>
+		</p>
+
+		{{if .FormMessages}}
+		<section class="confirmation-code">
+			{{.FormMessages}}
+		</section>
+		{{end}}
+
+		{{if .FormErrors}}
+		<section class="errors">
+			{{.FormErrors}}
+		</section>
+		{{end}}
+		
+		<section>
+			Time:
+			<time>
+				{{.Event.Date.Format "2006-01-02 15:04"}}
+			</time>
+		</section>
+		<section>
 			Category: {{.Event.Category}}
-		</p>
-		<p>
+		</section>
+		<section>
 			Description: {{.Event.Description}}
-		</p>
+		</section>
+		<section>
 			Attendees:
 			{{range .Event.Attending}}
 			<ul>
@@ -37,32 +52,19 @@
 				</li>
 			</ul>
 		{{end}}
-		<p>
+		</section>
+		<img src="{{.Event.Image}}">
 		<section>
 			<p>RSVP form:</p>
 			<form method="POST">
-			<input type="email" name="email">
-			<input type="submit">
+				<input type="email" name="email">
+				<input type="submit">
 			</form>
 		</section>
-		</p>
-		<p>
-			<a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a>
-		</p>
-	</p>
+
 </div>
 
-{{if .FormErrors}}
-<section class="errors">
-{{.FormErrors}}
-</section>
-{{end}}
 
-{{if .FormMessages}}
-<section class="confirmation-code">
-	{{.FormMessages}}
-</section>
-{{end}}
 
 <div class="toastarea" aria-live="polite" aria-atomic="true">
   <!-- Position it -->
