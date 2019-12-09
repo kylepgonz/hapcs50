@@ -34,8 +34,8 @@
 		</form>
 	</section> -->
 
-	<form method="POST" onsubmit="checkLiability();">
-			<section>
+	<section>
+		<form method="POST" onsubmit="checkLiability();">
 				<div class="smart-wrap">
 					<div class="smart-forms smart-container wrap-0">
 						<div class="form-header header-primary"><h4><i class="fa fa-pencil-square"></i><b>Create a HAP event</b></h4></div>
@@ -47,7 +47,6 @@
 								<div class="tagline"><span>Who are you?</span></div>
 								</div>
 								<p></p>
-
 								<!-- <div class="row"> -->
 								<div class="section">
 								<label for="username" class="field prepend-icon">
@@ -73,15 +72,6 @@
 								<label for="eventname" class="field-icon"><i class="fa fa-star"></i></label>
 								</label>
 								</div>
-
-								<!-- </div> -->
-								<div class="section">
-								<label for="short" class="field prepend-icon">
-								<input type="short" name="description" id="description" class="gui-input" placeholder="Description">
-								<label for="useremail" class="field-icon"><i class="fa fa-edit"></i></label>
-								</label>
-								</div>
-
 								<!-- Location -->
 								<div class="section">
 									<label for="short" class="field prepend-icon">
@@ -89,15 +79,20 @@
 										<label for="location" class="field-icon"><i class="fa fa-edit"></i></label>
 									</label>
 								</div>
-
 								<!-- Calendar -->
 								<div class="section">
+									<label for="short" class="field prepend-icon">
+										<input type="datetime-local" name="date" id="date" class="gui-input" placeholder="YYYY-MM-DDTHH:MM">
+										<label for="date" class="field-icon"><i class="fa fa-calendar"></i></label>
+									</label>
+								</div>
+								<!-- </div> -->
+								<div class="section">
 								<label for="short" class="field prepend-icon">
-								<input type="datetime-local" name="date" id="date" class="gui-input" placeholder="YYYY-MM-DDTHH:MM">
-								<label for="date" class="field-icon"><i class="fa fa-calendar"></i></label>
+								<input type="short" name="description" id="description" class="gui-input" placeholder="Description">
+								<label for="description" class="field-icon"><i class="fa fa-edit"></i></label>
 								</label>
 								</div>
-
 								<!-- Category -->
 								<div class="section">
 								<label class="field select">
@@ -135,8 +130,8 @@
 								</div>
 								<div class="form-footer">
 								<!-- <input type="submit">  -->
-								Make this HAP-pen
-								<input type="submit" class="button btn-primary">
+
+								<input type="submit" value="Make this HAP-pen" class="button btn-primary">
 								<button onclick="window.location.href = '/';" type="reset" class="button"> Cancel </button>
 								</div>
 							</div>
@@ -144,8 +139,8 @@
 					</div>
 				</div>
 			</div>
-		</section>
-	</form>
+		</form>
+	</section>
 </div>
 
 <div id="toastarea" class="toastarea" aria-live="polite" aria-atomic="true">
