@@ -1,7 +1,7 @@
 body {
   background-color: #f9f5f2;
   color: d43434;
-  font-family: 'Roboto', sans-serif !important;
+  font-family: 'Verdana', sans-serif !important;
   margin: 0;
   scroll-snap-type: y mandatory;
 }
