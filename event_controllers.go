@@ -119,21 +119,18 @@ func eventDetailController(w http.ResponseWriter, r *http.Request) {
 	}
 
 	errorsWeFound := ""
-	messagesWeFound := ""
-
+	confCode := ""
 	if r.Method == http.MethodPost {
-		//try to RSVP person
 		r.ParseForm()
 
 		email := strings.ToLower(r.PostFormValue("email"))
 		if strings.HasSuffix(email, "@yale.edu") {
 			err := addAttendee(eventID, email)
-			confCode := getConfirmationCode(email)
 			if err != nil {
 				http.Error(w, "Invalid event ID!", http.StatusInternalServerError)
 				return
 			}
-			messagesWeFound = "Your confirmation code: " + confCode
+			confCode = getConfirmationCode(email)
 		} else {
 			errorsWeFound += "Bad email address! '@yale.edu only!'"
 		}
@@ -148,7 +145,7 @@ func eventDetailController(w http.ResponseWriter, r *http.Request) {
 	eventData := eventDetailContextData{
 		Event:        event,
 		FormErrors:   errorsWeFound,
-		FormMessages: messagesWeFound,
+		FormMessages: confCode,
 	}
 
 	tmpl["event-detail"].Execute(w, eventData)
