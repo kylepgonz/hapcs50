@@ -21,7 +21,7 @@
 <div class="body" id="body">
 	<section>
 				<div class="smart-wrap">
-					<div class="smart-forms smart-container wrap-0">
+					<div class=" smart-container wrap-0">
 						<div class="form-header header-primary"><h4><i class="fa fa-pencil-square"></i><b>Create a HAP event</b></h4></div>
 						<div method="post" id="new_post" name="new_post"  action="" class="wpcf7-form" enctype="multipart/form-data">
 							<!--Section 1-->
@@ -31,42 +31,45 @@
 								<div class="tagline"><span>What's your event?</span></div> </div>
 								<!-- <div class="row"> -->
 								<form method="POST">
-								<div class="section">
-									<label for="title" class="field prepend-icon"></label>
-									<input type="text" name="title" class="gui-input" placeholder="Event Name">
-									<label for="location" class="field prepend-icon"></label>
-									<input type="text" name="location" class="gui-input" placeholder="Location">
-									<label for="image" class="field prepend-icon"></label>
-									<input type="url" name="image" class="gui-input" placeholder="Image URL">
-									<label for="date" class="field prepend-icon"></label>
-										<input type="datetime-local" name="date" class="gui-input" placeholder="YYYY-MM-DDTHH:MM">
-								</div>
+											<div class="section">
+												<label for="title" class="field prepend-icon"></label>
+												<input type="text" name="title" class="gui-input" placeholder="Event Name">
+												<label for="location" class="field prepend-icon"></label>
+												<input type="text" name="location" class="gui-input" placeholder="Location">
+												<label for="image" class="field prepend-icon"></label>
+												<input type="url" name="image" class="gui-input" placeholder="Image URL">
+												<label for="date" class="field prepend-icon"></label>
+												<input type="datetime-local" name="date" class="gui-input" placeholder="YYYY-MM-DDTHH:MM">
+											</div>
 
-								<div class="section">
-									<label for="description" class="field prepend-icon">
-									<input type="text" name="description" class="gui-input" placeholder="Description">
-									<label for="description" class="field-icon"><i class="fa fa-edit"></i></label>
-									</label>
-								</div>
-								<!-- Category -->
-								<div class="section">
-								<label class="field select">
-								<select name="category">
-									<option value="Networking">Networking</option>
-									<option value="Food and Drinks">Food and Drinks</option>
-									<option value="Music and Dance">Music and Dance</option>
-									<option value="Sports">Sports</option>
-									<option value="Volunteerism">Volunteerism</option>
-								</select>
-								</label>
-								</div>
-								<input type="submit" value="Make this HAP-pen" class="button btn-primary">
-								<button onclick="window.location.href = '/';" type="reset" class="button"> Cancel </button>
+											<div class="section">
+											<input type="submit" value="Make this HAP-pen" class="button btn-primary">
+											<button onclick="window.location.href = '/';" type="reset" class="button"> Cancel </button>
+											</div>
+
+											<div class="section">
+												<label for="description" class="field prepend-icon">
+												<input type="text" name="description" class="gui-input" placeholder="Description">
+												<label for="description" class="field-icon"><i class="fa fa-edit"></i></label>
+												</label>
+											</div>
+											<!-- Category -->
+											<div class="section">
+											<label class="field select">
+											<select name="category">
+												<option value="Networking">Networking</option>
+												<option value="Food and Drinks">Food and Drinks</option>
+												<option value="Music and Dance">Music and Dance</option>
+												<option value="Sports">Sports</option>
+												<option value="Volunteerism">Volunteerism</option>
+											</select>
+											</label>
+											</div>
 								</form>
-								</div>
 							</div>
 						</div>
 					</div>
+			</div>
 	</section>
 </div>
 
