@@ -129,7 +129,7 @@ func eventDetailController(w http.ResponseWriter, r *http.Request) {
 		if strings.HasSuffix(email, "@yale.edu") {
 			err := addAttendee(eventID, email)
 			confCode := getConfirmationCode(email)
-			messagesWeFound = "RSVP successful! Your code is " + confCode
+			messagesWeFound = "Your confirmation code: " + confCode
 			if err != nil {
 				http.Error(w, "Invalid event ID!", http.StatusInternalServerError)
 				return
