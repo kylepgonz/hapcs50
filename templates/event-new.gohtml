@@ -67,29 +67,39 @@
 								<div class="tagline"><span>What's your event?</span></div> </div>
 								<!-- <div class="row"> -->
 								<div class="section">
-								<label for="title" class="field prepend-icon">
+								<label for="title" class="field prepend-icon"></label>
 								<input type="text" name="title" id="title" class="gui-input" placeholder="Event Name">
-								<label for="eventname" class="field-icon"><i class="fa fa-star"></i></label>
-								</label>
+								<!-- <label for="eventname" class="field-icon"><i class="fa fa-star"></i></label> -->
 								</div>
+
 								<!-- Location -->
 								<div class="section">
-									<label for="short" class="field prepend-icon">
-										<input type="text" name="location" id="location" class="gui-input" placeholder="Location">
-										<label for="location" class="field-icon"><i class="fa fa-edit"></i></label>
-									</label>
+									<label for="location" class="field prepend-icon"></label>
+									<input type="text" name="location" id="location" class="gui-input" placeholder="Location">
+									<!-- <label for="location" class="field-icon"><i class="fa fa-edit"></i></label> -->
 								</div>
+
+								<!-- Others -->
+								<div class="spacer-b30">
+									<div class="tagline"><span>Make your event HAPpening!</span></div> </div>
+
+								<div class="section">
+									<label for="image" class="field prepend-icon"></label>
+										<input type="url" name="image" id="Image URL" class="gui-input" placeholder="Image URL">
+										<!-- <label for="image" class="field-icon"><i class="fa fa-picture-o"></i></label> -->
+								</div>
+
 								<!-- Calendar -->
 								<div class="section">
-									<label for="short" class="field prepend-icon">
+									<label for="date" class="field prepend-icon"></label>
 										<input type="datetime-local" name="date" id="date" class="gui-input" placeholder="YYYY-MM-DDTHH:MM">
-										<label for="date" class="field-icon"><i class="fa fa-calendar"></i></label>
-									</label>
+										<!-- <label for="date" class="field-icon"><i class="fa fa-calendar"></i></label> -->
 								</div>
 								<!-- </div> -->
+
 								<div class="section">
-								<label for="short" class="field prepend-icon">
-								<input type="short" name="description" id="description" class="gui-input" placeholder="Description">
+								<label for="description" class="field prepend-icon">
+								<input type="text" name="description" id="description" class="gui-input" placeholder="Description">
 								<label for="description" class="field-icon"><i class="fa fa-edit"></i></label>
 								</label>
 								</div>
@@ -103,16 +113,6 @@
 								<option value="Sports">Sports</option>
 								<option value="Volunteerism">Volunteerism</option>
 								</select>
-								</div>
-
-								 <!-- Others -->
-								<div class="spacer-b30">
-								<div class="tagline"><span>Make your event HAPpening!</span></div> </div>
-								<!-- <div class="row"> -->
-								<div class="section">
-								<label for="imageurl" class="field prepend-icon">
-								<input type="url" name="image" id="Image URL" class="gui-input" placeholder="Image URL">
-								<label for="image" class="field-icon"><i class="fa fa-picture-o"></i></label>
 								</label>
 								</div>
 
@@ -200,6 +200,7 @@ function checkLiability() {
 </script>
 
 <!-- Kat's Code Codepen-->
+<link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 <link rel='stylesheet' href='https://s3-us-west-2.amazonaws.com/s.cdpn.io/172203/smart-forms.css'>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <!-- End of Codepen -->
