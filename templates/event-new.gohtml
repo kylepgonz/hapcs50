@@ -48,9 +48,11 @@
 			<div class="toast-body">
 				<ul>
 				{{range .FormErrors}}
+				<div class="errors">
 					<li>
 						{{.}}
 					</li>
+				</div>
 				{{end}}
 				<ul>
 			</div>
