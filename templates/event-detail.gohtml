@@ -52,6 +52,18 @@
 	</p>
 </div>
 
+{{if .FormErrors}}
+<section class="errors">
+{{.FormErrors}}
+</section>
+{{end}}
+
+{{if .FormMessages}}
+<section class="confirmation-code">
+	{{.FormMessages}}
+</section>
+{{end}}
+
 <div class="toastarea" aria-live="polite" aria-atomic="true">
   <!-- Position it -->
 	<div class="toastcontainer mx-auto">
