@@ -43,21 +43,54 @@
 
 							<!--Section 1-->
 							<div class="form-body">
+								<!-- <div class="spacer-b30">
+								<div class="tagline"><span>Who are you?</span></div>
+								</div>
+								<p></p>
+								<div class="section">
+								<label for="username" class="field prepend-icon">
+								<input type="text" name="Name" id="Name" class="gui-input" placeholder="Name">
+								<label for="name" class="field-icon"><i class="fa fa-user"></i></label>
+								</label>
+								</div>
+								<div class="section">
+								<label for="useremail" class="field prepend-icon">
+								<input type="email" name="useremail" id="useremail" class="gui-input" placeholder="Email address">
+								<label for="useremail" class="field-icon"><i class="fa fa-envelope"></i></label>
+								</label>
+								</div> -->
+
+								<form method="POST">
 								<!-- Section 2 -->
 								<div class="spacer-b30">
 								<div class="tagline"><span>What's your event?</span></div> </div>
 								<!-- <div class="row"> -->
-								<form method="POST">
 								<div class="section">
 									<label for="title" class="field prepend-icon"></label>
 									<input type="text" name="title" class="gui-input" placeholder="Event Name">
+								<!-- </div> -->
+								<!-- <label for="eventname" class="field-icon"><i class="fa fa-star"></i></label> -->
+								<!-- Location -->
+								<!-- <div class="section"> -->
 									<label for="location" class="field prepend-icon"></label>
 									<input type="text" name="location" class="gui-input" placeholder="Location">
+								<!-- </div> -->
+									<!-- <label for="location" class="field-icon"><i class="fa fa-edit"></i></label> -->
+								<!-- Others -->
+								<!-- <div class="spacer-b30">
+									<div class="tagline"><span>Make your event HAPpening!</span></div> </div> -->
+								<!-- <div class="section"> -->
 									<label for="image" class="field prepend-icon"></label>
 									<input type="url" name="image" class="gui-input" placeholder="Image URL">
+								<!-- </div> -->
+										<!-- <label for="image" class="field-icon"><i class="fa fa-picture-o"></i></label> -->
+								<!-- Calendar -->
+								<!-- <div class="section"> -->
 									<label for="date" class="field prepend-icon"></label>
 										<input type="datetime-local" name="date" class="gui-input" placeholder="YYYY-MM-DDTHH:MM">
 								</div>
+										<!-- <label for="date" class="field-icon"><i class="fa fa-calendar"></i></label> -->
+								<!-- </div> -->
 
 								<div class="section">
 									<label for="description" class="field prepend-icon">
@@ -69,23 +102,42 @@
 								<div class="section">
 								<label class="field select">
 								<select name="category">
-									<option value="Networking">Networking</option>
-									<option value="Food and Drinks">Food and Drinks</option>
-									<option value="Music and Dance">Music and Dance</option>
-									<option value="Sports">Sports</option>
-									<option value="Volunteerism">Volunteerism</option>
+								<option value="Networking">Networking</option>
+								<option value="Food and Drinks">Food and Drinks</option>
+								<option value="Music and Dance">Music and Dance</option>
+								<option value="Sports">Sports</option>
+								<option value="Volunteerism">Volunteerism</option>
 								</select>
 								</label>
 								</div>
+
+								 <!-- Footer -->
+								<!-- <div class="spacer spacer-t10 spacer-b20"> </div>
+								<div class="section">
+								<p> You will not hold HAP liable for any untoward incident at the event you're registerting. </p>
+								<div class="section">
+								<div class="option-group field">
+								<label class="option block">
+								<input type="checkbox" name="liability" id="liability" value="liability">
+								<span class="checkbox"></span> Yes, definitely
+								</label>
+								</div>
+								</div>
+								<div class="form-footer"> -->
+								<!-- <input type="submit">  -->
+
 								<input type="submit" value="Make this HAP-pen" class="button btn-primary">
-								<button onclick="window.location.href = '/';" type="reset" class="button"> Cancel </button>
 								</form>
+								<button onclick="window.location.href = '/';" type="reset" class="button"> Cancel </button>
 								</div>
 							</div>
 						</div>
 					</div>
+				<!-- </div> -->
+			<!-- </div> -->
+		<!-- </form> -->
 	</section>
-
+</div>
 
 <div id="toastarea" class="toastarea" aria-live="polite" aria-atomic="true">
 	<!-- Position it -->
