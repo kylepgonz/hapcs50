@@ -27,6 +27,7 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 	email := make([]string, 0)
 	messagesWeFound := ""
 	redirect := make([]int, 0)
+	id := 0
 
 	if r.Method == http.MethodPost {
 		//get data on event from create page
@@ -38,7 +39,7 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 		date, err := time.Parse("2006-01-02T15:04", r.PostFormValue("date"))
 		category := r.PostFormValue("category")
 		description := r.PostFormValue("description")
-		id := getMaxEventID() + 1
+		id = getMaxEventID() + 1
 
 		today := time.Now()
 		if today.After(date) {
@@ -99,14 +100,13 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 		FormMessages: messagesWeFound,
 		Redirect:     redirect,
 	}
-	// if messagesWeFound != "" {
-	// 	println(id)
-	// 	foo := "/events/" + strconv.Itoa(id)
-	// 	println(foo)
-	// 	time.Sleep(2 * time.Second)
-	// 	http.Redirect(w, r, foo, http.StatusFound)
-	// 	return
-	// }
+	if messagesWeFound != "" {
+		foo := "/events/" + strconv.Itoa(id)
+		println(foo)
+		time.Sleep(2 * time.Second)
+		http.Redirect(w, r, foo, http.StatusFound)
+		return
+	}
 	tmpl["event-new"].Execute(w, eventData)
 }
 
