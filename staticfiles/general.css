@@ -40,15 +40,21 @@ h1 {
 h1.normal{
   margin-top: 80px
   align-content: center;
+  padding-left:40px
+  margin: 20px;
 }
 h2 {
   color: #d43434;
   font-family: 'Fredoka One';
   font-size: 30px;
+  padding-left:40px
+  margin: 20px;
 }
 p {
   font-family: 'Verdana';
   font-size: 15px;
+  padding-left:40px
+  margin: 20px;
 }
 a:link, a:visited {
   text-decoration-line: none;
@@ -381,3 +387,4 @@ box-shadow: 0 1px 0 0 #f48fb1;
 .is-blurred {
   backdrop-filter: blur(2px) grayscale(100%);
 }
+
