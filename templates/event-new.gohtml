@@ -19,7 +19,7 @@
 
 {{define "content"}}
 <div class="body" id="body">
-	<form onsubmit="checkLiability();" method="POST">
+	<form method="POST" onsubmit="checkLiability();" >
 			<section>
 				<div class="smart-wrap">
 					<div class="smart-forms smart-container wrap-0">
@@ -35,7 +35,7 @@
 
 								<!-- <div class="row"> -->
 								<div class="section">
-								<label for="name" class="field prepend-icon">
+								<label for="username" class="field prepend-icon">
 								<input type="text" name="Name" id="Name" class="gui-input" placeholder="Name">
 								<label for="name" class="field-icon"><i class="fa fa-user"></i></label>
 								</label>
@@ -53,7 +53,7 @@
 								<div class="tagline"><span>What's your event?</span></div> </div>
 								<!-- <div class="row"> -->
 								<div class="section">
-								<label for="eventname" class="field prepend-icon">
+								<label for="title" class="field prepend-icon">
 								<input type="text" name="title" id="title" class="gui-input" placeholder="Event Name">
 								<label for="eventname" class="field-icon"><i class="fa fa-star"></i></label>
 								</label>
@@ -66,19 +66,19 @@
 								</label>
 								</div>
 
+								<!-- Location -->
+								<div class="section">
+									<label for="short" class="field prepend-icon">
+										<input type="text" name="location" id="location" class="gui-input" placeholder="Location">
+										<label for="useremail" class="field-icon"><i class="fa fa-edit"></i></label>
+									</label>
+								</div>
+
 								<!-- Calendar -->
 								<div class="section">
 								<label for="short" class="field prepend-icon">
-								<input type="datetime-local" name="date" id="description" class="gui-input" placeholder="Date and Time">
+								<input type="datetime-local" name="date" id="date" class="gui-input" placeholder="Date and Time">
 								<label for="date" class="field-icon"><i class="fa fa-calendar"></i></label>
-								</label>
-								</div>
-
-								<!-- Location -->
-								<div class="section">
-								<label for="short" class="field prepend-icon">
-								<input type="text" name="location" id="location" class="gui-input" placeholder="Location">
-								<label for="useremail" class="field-icon"><i class="fa fa-edit"></i></label>
 								</label>
 								</div>
 
@@ -102,7 +102,7 @@
 								<div class="section">
 								<label for="imageurl" class="field prepend-icon">
 								<input type="url" name="image" id="Image URL" class="gui-input" placeholder="Image URL">
-								<label for="eventname" class="field-icon"><i class="fa fa-picture-o"></i></label>
+								<label for="url" class="field-icon"><i class="fa fa-picture-o"></i></label>
 								</label>
 								</div>
 
@@ -121,7 +121,7 @@
 								<div class="form-footer">
 								<!-- <input type="submit">  -->
 								<button type="submit" class="button btn-primary"> Make this HAP-pen </button>
-								<button  onclick="window.location.href = '/';" type="reset" class="button"> Cancel </button>
+								<button onclick="window.location.href = '/';" type="reset" class="button"> Cancel </button>
 								</div>
 							</div>
 						</div>
