@@ -77,6 +77,9 @@ func reportHandler(w http.ResponseWriter, r *http.Request) {
 			case 3:
 				// if the report 2
 				tmpl["report3"].Execute(w, "")
+			case 4:
+				// if the report 2
+				tmpl["report4"].Execute(w, "")
 			default:
 				// if anthing e;slse
 			}

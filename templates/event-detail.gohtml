@@ -8,41 +8,15 @@
 
 {{define "content"}}
 <div id="body" class="body">
-
-		<section>
-
-		{{if .FormMessages}}
-		<section class="confirmation-code">
-			Your confirmation code: {{.FormMessages}}
-		</section>
-		{{end}}
-    
-	<section>
-	<h1 class="title">{{.Event.Title}}</h1>
-	<p>
-		{{.Event.Location}}
-	</p>
-	<p>
-		<a href="/events/{{.Event.ID}}/donate">
-			Want to support?
-		</a>
-	</p>
-	</section>
-
-	{{if .FormErrors}}
-	<section class="errors">
-		{{.FormErrors}}
-	</section>
-	{{end}}
-
 <section>
 <div class="grid-container">
 <div class="card-deck">
-<div class="card-profile">
-		<img src="{{.Event.Image}}" style="width:100%">
-		<p class="title-profile">{{.Event.Title}}</h1>
-		</section>
+<div class="text-left card-profile">
+<img src="{{.Event.Image}}" style="width:100%">
+<div class="p-4">
+<p class="title-profile"><b>{{.Event.Title}}</b></p>
 		<section>
+		<p><a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Want to Donate?</a></p>
 		<p><b>Location</b>: {{.Event.Location}} </p>
 		<p><b>Time</b>:
 			<time>
@@ -50,69 +24,49 @@
 			</time></p>
 			<p><b>Category</b>: {{.Event.Category}}</p>
 			<p><b>Description</b>: {{.Event.Description}}</p>
-			<p><b>Attendees</b>:
-			{{range .Event.Attending}}</p>
+			<p><b>Attendees</b>:</p>
 			<ul>
+				{{range .Event.Attending}}
 				<li>
 				{{.}}
 				</li>
+				{{end}}
 			</ul>
 		</section>
-		
+
 		<div class="grid-container">
 		<section>
 			<p><b>RSVP form</b>:</p>
 			<form method="POST">
-				<input type="email" name="email">
-				<input type="submit">
-				<p> <a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a></p>
+				<input type="email" name="email" style="display: unset;">
+				<input type="submit" style="display: unset;">
 			</form>
+			</section>
+		</div>
+		{{if .FormMessages}}
+		<section class="confirmation-code">
+			Your confirmation code: {{.FormMessages}}
 		</section>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 		{{end}}
+
+		{{if .FormErrors}}
+		<section class="errors">
+			{{.FormErrors}}
 		</section>
+		{{end}}
 </div>
 </div>
 </div>
-
-
-	<section>
-	<time>
-		{{.Event.Date}}
-	</time>
-	</section>
-
-	<section>
-	<ul>
-				{{range .Event.Attending}}
-				<li>{{.}}</li>
-			  {{end}}
-	</ul>
+</div>
 </section>
 
-<section>
-	<img src="{{.Event.Image}}" alt="event image">
-</section>
-
-<section>
-	<p>RSVP form:</p>
-	<form method="POST">
-		<input type="email" name="email">
-		<input type="submit">
-	</form>
-</section>
 
 </div>
+
+
 
 <div class="toastarea" id="toastarea" aria-live="polite" aria-atomic="true">
 	<div class="toastcontainer mx-auto" id="toastcontainer">
-
 		{{if .Donate}}
 		<script>
 				// alert('The toast is now fully shown.');
@@ -131,26 +85,4 @@
 		{{end}}
 	</div>
 </div>
-
-
-<!-- <section>
-	<ul>
-		{{range .Event.Attending}}
-			{{.}}
-			<br>
-		  {{end}}
-	</ul>
-</section>
-
-
-<section>
-
-<div class="centered14"><p>RSVP form:</p></div>
-	<form method="POST">
-	<div class="centered15"><input type="email" name="email"></div>
-	<div class="centered16">	<input type="submit"></div>
-	</form>
-</section>
-
-</div> -->
 {{end}}
