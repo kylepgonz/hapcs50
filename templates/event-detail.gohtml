@@ -17,13 +17,13 @@
 		</section>
 		<section>
 			Time:
-			<time>
+			<h3 class="date">
 				{{.Event.Date.Format "2006-01-02 15:04"}}
-			</time>
+			</h3>
 		</section>
-		<section>
+		<h3 class="location">
 			Location: {{.Event.Location}}
-		</section>
+		</h3>
 
 		{{if .FormErrors}}
 		<section class="errors">
@@ -38,20 +38,12 @@
 		{{end}}
 
 		<section>
-			Category: {{.Event.Category}}
-		</section>
-
-		<section>
-			Description: {{.Event.Description}}
-		</section>
-
-		<section>
 			Attendees:
 			<ul>
-			{{range .Event.Attending}}
+				{{range .Event.Attending}}
 				{{.}}
 				<br>
-			{{end}}
+				{{end}}
 			</ul>
 		</section>
 
@@ -62,6 +54,15 @@
 				<input type="submit">
 			</form>
 		</section>
+		
+		<section>
+			Category: {{.Event.Category}}
+		</section>
+
+		<section>
+			Description: {{.Event.Description}}
+		</section>
+
 
 	</section>
 </div>
