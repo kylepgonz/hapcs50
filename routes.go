@@ -16,6 +16,7 @@ func getRoutes() chi.Router {
 	r.Get("/report", reportHandler)
 	r.Get("/about", aboutHandler)
 	r.Get("/events/{eventID:[0-9]+}", eventDetailController)
+	r.Get("/events/{eventID:[0-9]+}/{action:[a-z-]+}", eventDetailController)
 	r.Post("/events/{eventID:[0-9]+}", eventDetailController)
 	r.Get("/events/new", eventCreateController)
 	r.Get("/api/events", apiEventListController)
