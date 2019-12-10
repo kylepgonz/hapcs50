@@ -14,6 +14,7 @@ type eventDetailContextData struct {
 	Event        Event
 	FormErrors   string
 	FormMessages string
+	Donate       string
 }
 
 type eventCreateContextData struct {
@@ -112,14 +113,22 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 
 func eventDetailController(w http.ResponseWriter, r *http.Request) {
 	eventIDstring := chi.URLParam(r, "eventID")
+	action := chi.URLParam(r, "action")
+
+	donate := ""
+	errorsWeFound := ""
+	confCode := ""
+
+	if action == "donate" {
+		donate += "yes"
+	}
+
 	eventID, err := strconv.Atoi(eventIDstring)
 	if err != nil {
 		http.Error(w, "Invalid event ID!", http.StatusBadRequest)
 		return
 	}
 
-	errorsWeFound := ""
-	confCode := ""
 	if r.Method == http.MethodPost {
 		r.ParseForm()
 
@@ -146,6 +155,7 @@ func eventDetailController(w http.ResponseWriter, r *http.Request) {
 		Event:        event,
 		FormErrors:   errorsWeFound,
 		FormMessages: confCode,
+		Donate:       donate,
 	}
 
 	tmpl["event-detail"].Execute(w, eventData)
