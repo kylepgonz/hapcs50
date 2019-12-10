@@ -9,15 +9,7 @@
 
 <div id="body" class="body">
 
-	<section>
-		<!-- <div class="grid-item"> -->
-		<h1 class="title">{{.Event.Title}}</h1>
-		<p>
-			Location: {{.Event.Location}}
-		</p>
-		<p>
-			<a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a>
-		</p>
+		<section>
 
 		{{if .FormMessages}}
 		<section class="confirmation-code">
@@ -31,36 +23,55 @@
 		</section>
 		{{end}}
 
+
+<section>
+<div class="grid-container">
+<div class="card-deck">
+<div class="card-profile">
+		<img src="{{.Event.Image}}" style="width:100%">
+		<p class="title-profile">{{.Event.Title}}</h1>
+		</section>
 		<section>
-			Time:
+<div class="card-deck">
+<div class="card-profile">
+		<p> Location: {{.Event.Location}} </p>
+		<p>Time:
 			<time>
 				{{.Event.Date.Format "2006-01-02 15:04"}}
-			</time>
+			</time></p>
 		</section>
 		<section>
-			Category: {{.Event.Category}}
+			<p>Category: {{.Event.Category}}</p>
 		</section>
 		<section>
-			Description: {{.Event.Description}}
+			<p>Description: {{.Event.Description}}</p>
 		</section>
 		<section>
-			Attendees:
-			{{range .Event.Attending}}
+			<p>Attendees:
+			{{range .Event.Attending}}</p>
 			<ul>
 				<li>
 				{{.}}
 				</li>
 			</ul>
+</div>
+</div>
 		{{end}}
 		</section>
-		<img src="{{.Event.Image}}">
+</div>
+</div>
+</div>
+
+<div class="grid-container">
 		<section>
 			<p>RSVP form:</p>
 			<form method="POST">
 				<input type="email" name="email">
 				<input type="submit">
+				<p> <a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a></p>
 			</form>
 		</section>
+</div>
 
 </div>
 

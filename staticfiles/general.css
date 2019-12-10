@@ -288,7 +288,7 @@ button-profile:hover, a:hover {
 .profile-grid-container {
   display: flex;
   grid-gap: 0px;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
   padding: 0px;
   flex-wrap: wrap
 }
@@ -386,4 +386,17 @@ box-shadow: 0 1px 0 0 #f48fb1;
 
 .is-blurred {
   backdrop-filter: blur(2px) grayscale(100%);
+}
+.event-profile {
+  color: grey;
+  font-size: 12px;
+}
+
+.card-media-body {
+  background-color: #fff;
+  float: left;
+  height: 100%;
+  padding: 12px 15px;
+  position: relative;
+  width: 65%;
 }
