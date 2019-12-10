@@ -8,116 +8,48 @@
 
 {{define "content"}}
 <div id="body" class="body">
-	<section>
-		<!-- <div class="grid-item"> -->
-		<h1 class="title">{{.Event.Title}}</h1>
-		<img src="{{.Event.Image}}" alt="event image">
-		<section>
-			<a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a>
-		</section>
-		<section>
-			Time:
-			<h3 class="date">
-				{{.Event.Date.Format "2006-01-02 15:04"}}
-			</h3>
-		</section>
-		<h3 class="location">
-			Location: {{.Event.Location}}
-		</h3>
+  <div class="centered4"><h1 class="title">{{.Event.Title}}</h1></div>
+  <div class="centered5"><img class="collection" src = "{{.Event.Image}}" alt="event image"></div>
 
-		{{if .FormErrors}}
-		<section class="errors">
-			{{.FormErrors}}
-		</section>
-		{{end}}
+<p>
+	<div class="centered13"><a href="/events/{{.Event.ID}}/donate">DONATE HERE</a></div>
+</p>
 
-		{{if .FormMessages}}
-		<section class="confirmation-code">
-			Your confirmation code: {{.FormMessages}}
-		</section>
-		{{end}}
+<div class="centered9">Date and Time</div>
+<div class="centered10"><h3 class="date">{{.Event.Date}}</h3></div>
+<div class="centered11">Location</div>
+<div class="centered12"><h2 class="location">{{.Event.Location}}</h1></div>
 
-		<section>
-			Attendees:
-			<ul>
-				{{range .Event.Attending}}
-				{{.}}
-				<br>
-				{{end}}
-			</ul>
-		</section>
+{{if .FormErrors}}
+<Section class="errors">
+	{{.FormErrors}}
+</section>
+{{end}}
 
-		<section>
-			<p>RSVP form:</p>
-			<form method="POST">
-				<input type="email" name="email">
-				<input type="submit">
-			</form>
-		</section>
-		
-		<section>
-			Category: {{.Event.Category}}
-		</section>
+{{if .FormMessages}}
+<Section>
+	You have successfully registered. Your confirmation code is {{.FormMessages}}.
+</section>
+{{end}}
 
-		<section>
-			Description: {{.Event.Description}}
-		</section>
+<section>
+	<ul>
+		{{range .Event.Attending}}
+			{{.}}
+			<br>
+		  {{end}}
+	</ul>
+</section>
 
 
-	</section>
-</div>
+<section>
 
-<div class="toastarea" id="toastarea" aria-live="polite" aria-atomic="true">
-	<div class="toastcontainer mx-auto" id="toastcontainer">
+<div class="centered14"><p>RSVP form:</p></div>
+	<form method="POST">
+	<div class="centered15"><input type="email" name="email"></div>
+	<div class="centered16">	<input type="submit"></div>
+	</form>
+</section>
 
-		{{if .Donate}}
-		<script>
-				// alert('The toast is now fully shown.');
-				document.getElementById('toastarea').className = "toastarea h-100 is-blurred";
-				document.getElementById('toastarea').style = "text-center backdrop-filter: blur(2px) grayscale(100%)"
-				document.getElementById('toastcontainer').className = "toastcontainer mx-auto text-center";
-				var timer = setTimeout(function() {
-						window.location='/events/{{.Event.ID}}'
-				}, 3000);
-		</script>
-		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
-		<lottie-player
-		    src="https://assets3.lottiefiles.com/datafiles/N03bNcunCAhiE6o/data.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay >
-		</lottie-player>
-		<h1 style="display: grid; margin-top: -150px;">Thanks for the love!</h1>
-		{{end}}
-
-		{{if .FormErrors}}
-		<div class="toast" id="message" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
-			<div class="toast-header bg-danger text-white">
-				<strong class="mr-auto">Error!</strong>
-								<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="toast-body errors">
-				<section class="errors">
-				{{.FormErrors}}
-				</section>
-			</div>
-		</div>
-		{{end}}
-
-		{{if .FormMessages}}
-		<div class="toast" data-autohide="false" id="message" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
-		  <div class="toast-header bg-success text-white">
-		    <strong class="mr-auto">Success!</strong>
-		     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-		      <span aria-hidden="true">&times;</span>
-		    </button>
-		  </div>
-		  <div class="toast-body">
-				<section class="confirmation-code">
-				{{.FormMessages}}
-				</section>
-		  </div>
-		</div>
-		{{end}}
-	</div>
 </div>
 {{end}}
