@@ -32,28 +32,36 @@
 		<p class="title-profile">{{.Event.Title}}</h1>
 		</section>
 		<section>
-<div class="card-deck">
-<div class="card-profile">
-		<p> Location: {{.Event.Location}} </p>
-		<p>Time:
+		<p><b>Location</b>: {{.Event.Location}} </p>
+		<p><b>Time</b>:
 			<time>
 				{{.Event.Date.Format "2006-01-02 15:04"}}
 			</time></p>
-		</section>
-		<section>
-			<p>Category: {{.Event.Category}}</p>
-		</section>
-		<section>
-			<p>Description: {{.Event.Description}}</p>
-		</section>
-		<section>
-			<p>Attendees:
+			<p><b>Category</b>: {{.Event.Category}}</p>
+			<p><b>Description</b>: {{.Event.Description}}</p>
+			<p><b>Attendees</b>:
 			{{range .Event.Attending}}</p>
 			<ul>
 				<li>
 				{{.}}
 				</li>
 			</ul>
+		</section>
+		
+		<div class="grid-container">
+		<section>
+			<p><b>RSVP form</b>:</p>
+			<form method="POST">
+				<input type="email" name="email">
+				<input type="submit">
+				<p> <a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a></p>
+			</form>
+		</section>
+</div>
+</div>
+</div>
+</div>
+</div>
 </div>
 </div>
 		{{end}}
@@ -62,16 +70,7 @@
 </div>
 </div>
 
-<div class="grid-container">
-		<section>
-			<p>RSVP form:</p>
-			<form method="POST">
-				<input type="email" name="email">
-				<input type="submit">
-				<p> <a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a></p>
-			</form>
-		</section>
-</div>
+
 
 </div>
 
