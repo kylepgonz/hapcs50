@@ -2,11 +2,11 @@
 
 {{define "title"}}
 	{{.Event.Title}}
+	{{.Event.Location}}
+	{{.Event.Date}}
 {{end}}
 
 {{define "content"}}
-
-
 <div id="body" class="body">
 
 		<section>
@@ -16,13 +16,24 @@
 			Your confirmation code: {{.FormMessages}}
 		</section>
 		{{end}}
+    
+	<section>
+	<h1 class="title">{{.Event.Title}}</h1>
+	<p>
+		{{.Event.Location}}
+	</p>
+	<p>
+		<a href="/events/{{.Event.ID}}/donate">
+			Want to support?
+		</a>
+	</p>
+	</section>
 
-		{{if .FormErrors}}
-		<section class="errors">
-			{{.FormErrors}}
-		</section>
-		{{end}}
-
+	{{if .FormErrors}}
+	<section class="errors">
+		{{.FormErrors}}
+	</section>
+	{{end}}
 
 <section>
 <div class="grid-container">
@@ -71,44 +82,75 @@
 </div>
 
 
+	<section>
+	<time>
+		{{.Event.Date}}
+	</time>
+	</section>
+
+	<section>
+	<ul>
+				{{range .Event.Attending}}
+				<li>{{.}}</li>
+			  {{end}}
+	</ul>
+</section>
+
+<section>
+	<img src="{{.Event.Image}}" alt="event image">
+</section>
+
+<section>
+	<p>RSVP form:</p>
+	<form method="POST">
+		<input type="email" name="email">
+		<input type="submit">
+	</form>
+</section>
 
 </div>
 
+<div class="toastarea" id="toastarea" aria-live="polite" aria-atomic="true">
+	<div class="toastcontainer mx-auto" id="toastcontainer">
 
-
-<div class="toastarea" aria-live="polite" aria-atomic="true">
-	<div class="toastcontainer mx-auto">
-		{{if .FormErrors}}
-		<div class="toast" id="message" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
-			<div class="toast-header bg-danger text-white">
-				<strong class="mr-auto">Error!</strong>
-								<button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-					<span aria-hidden="true">&times;</span>
-				</button>
-			</div>
-			<div class="toast-body errors">
-				<section class="errors">
-				{{.FormErrors}}
-				</section>
-			</div>
-		</div>
-		{{end}}
-
-		{{if .FormMessages}}
-		<div class="toast" data-autohide="false" id="message" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
-		  <div class="toast-header bg-success text-white">
-		    <strong class="mr-auto">Success!</strong>
-		     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-		      <span aria-hidden="true">&times;</span>
-		    </button>
-		  </div>
-		  <div class="toast-body">
-				<section class="confirmation-code">
-				{{.FormMessages}}
-				</section>
-		  </div>
-		</div>
+		{{if .Donate}}
+		<script>
+				// alert('The toast is now fully shown.');
+				document.getElementById('toastarea').className = "toastarea h-100 is-blurred";
+				document.getElementById('toastarea').style = "text-center backdrop-filter: blur(2px) grayscale(100%)"
+				document.getElementById('toastcontainer').className = "toastcontainer mx-auto text-center";
+				var timer = setTimeout(function() {
+						window.location='/events/{{.Event.ID}}'
+				}, 3000);
+		</script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<lottie-player
+		    src="https://assets3.lottiefiles.com/datafiles/N03bNcunCAhiE6o/data.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay >
+		</lottie-player>
+		<h1 style="display: grid; margin-top: -150px;">Thanks for the love!</h1>
 		{{end}}
 	</div>
 </div>
+
+
+<!-- <section>
+	<ul>
+		{{range .Event.Attending}}
+			{{.}}
+			<br>
+		  {{end}}
+	</ul>
+</section>
+
+
+<section>
+
+<div class="centered14"><p>RSVP form:</p></div>
+	<form method="POST">
+	<div class="centered15"><input type="email" name="email"></div>
+	<div class="centered16">	<input type="submit"></div>
+	</form>
+</section>
+
+</div> -->
 {{end}}
