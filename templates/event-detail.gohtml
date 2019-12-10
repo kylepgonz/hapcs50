@@ -2,6 +2,8 @@
 
 {{define "title"}}
 	{{.Event.Title}}
+	{{.Event.Location}}
+	{{.Event.Date}}
 {{end}}
 
 {{define "content"}}
@@ -9,12 +11,19 @@
 	<section>
 		<!-- <div class="grid-item"> -->
 		<h1 class="title">{{.Event.Title}}</h1>
-		<p>
-			Location: {{.Event.Location}}
-		</p>
-		<p>
+		<img src="{{.Event.Image}}" alt="event image">
+		<section>
 			<a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a>
-		</p>
+		</section>
+		<section>
+			Time:
+			<time>
+				{{.Event.Date.Format "2006-01-02 15:04"}}
+			</time>
+		</section>
+		<section>
+			Location: {{.Event.Location}}
+		</section>
 
 		{{if .FormErrors}}
 		<section class="errors">
@@ -27,13 +36,6 @@
 			Your confirmation code: {{.FormMessages}}
 		</section>
 		{{end}}
-
-		<section>
-			Time:
-			<time>
-				{{.Event.Date.Format "2006-01-02 15:04"}}
-			</time>
-		</section>
 
 		<section>
 			Category: {{.Event.Category}}
@@ -53,7 +55,6 @@
 			</ul>
 		</section>
 
-		<img src="{{.Event.Image}}" alt="event image">
 		<section>
 			<p>RSVP form:</p>
 			<form method="POST">
