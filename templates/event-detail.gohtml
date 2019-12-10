@@ -20,7 +20,7 @@
 		</a>
 	</p>
 	</section>
-	
+
 	{{if .FormErrors}}
 	<section class="errors">
 		{{.FormErrors}}
@@ -61,18 +61,27 @@
 
 </div>
 
-<!--
-  <div class="centered4"><h1 class="title">{{.Event.Title}}</h1></div>
-  <div class="centered5"><img class="collection" src = "{{.Event.Image}}" alt="event image"></div>
+<div class="toastarea" id="toastarea" aria-live="polite" aria-atomic="true">
+	<div class="toastcontainer mx-auto" id="toastcontainer">
 
-<p>
-	<div class="centered13"><a href="/events/{{.Event.ID}}/donate">DONATE HERE</a></div>
-</p>
-
-<div class="centered9">Date and Time</div>
-<div class="centered10"><h3 class="date">{{.Event.Date}}</h3></div>
-<div class="centered11">Location</div>
-<div class="centered12"><h2 class="location">{{.Event.Location}}</h1></div> -->
+		{{if .Donate}}
+		<script>
+				// alert('The toast is now fully shown.');
+				document.getElementById('toastarea').className = "toastarea h-100 is-blurred";
+				document.getElementById('toastarea').style = "text-center backdrop-filter: blur(2px) grayscale(100%)"
+				document.getElementById('toastcontainer').className = "toastcontainer mx-auto text-center";
+				var timer = setTimeout(function() {
+						window.location='/events/{{.Event.ID}}'
+				}, 3000);
+		</script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<lottie-player
+		    src="https://assets3.lottiefiles.com/datafiles/N03bNcunCAhiE6o/data.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay >
+		</lottie-player>
+		<h1 style="display: grid; margin-top: -150px;">Thanks for the love!</h1>
+		{{end}}
+	</div>
+</div>
 
 
 <!-- <section>
