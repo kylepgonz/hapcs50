@@ -2,7 +2,6 @@ package main
 
 import (
 	"net/http"
-	"strconv"
 	"time"
 	//"io/ioutil"
 	"math/rand"
@@ -59,31 +58,4 @@ func eventsController(w http.ResponseWriter, r *http.Request) {
 	}
 
 	tmpl["index"].Execute(w, contextData)
-}
-
-func reportHandler(w http.ResponseWriter, r *http.Request) {
-	pages, foundPages := r.URL.Query()["sprint"]
-
-	if foundPages {
-		i, err := strconv.Atoi(pages[0])
-		if err == nil {
-			switch i {
-			case 1:
-				// if the report 2
-				tmpl["report1"].Execute(w, "")
-			case 2:
-				// if the report 2
-				tmpl["report2"].Execute(w, "")
-			case 3:
-				// if the report 2
-				tmpl["report3"].Execute(w, "")
-			case 4:
-				// if the report 2
-				tmpl["report4"].Execute(w, "")
-			default:
-				// if anthing e;slse
-			}
-		}
-	}
-
 }
