@@ -14,17 +14,22 @@ type eventDetailContextData struct {
 	Event        Event
 	FormErrors   string
 	FormMessages string
+	Donate       string
 }
 
 type eventCreateContextData struct {
 	FormErrors   []string
 	FormMessages string
+	Redirect     []int
 }
 
 func eventCreateController(w http.ResponseWriter, r *http.Request) {
 	errorsWeFound := make([]string, 0)
 	email := make([]string, 0)
 	messagesWeFound := ""
+	redirect := make([]int, 0)
+	id := 0
+
 	if r.Method == http.MethodPost {
 		//get data on event from create page
 		r.ParseForm()
@@ -35,7 +40,7 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 		date, err := time.Parse("2006-01-02T15:04", r.PostFormValue("date"))
 		category := r.PostFormValue("category")
 		description := r.PostFormValue("description")
-		id := getMaxEventID() + 1
+		id = getMaxEventID() + 1
 
 		today := time.Now()
 		if today.After(date) {
@@ -87,40 +92,54 @@ func eventCreateController(w http.ResponseWriter, r *http.Request) {
 				http.Error(w, "Error in event creation!", http.StatusInternalServerError)
 				return
 			}
-			messagesWeFound += "Event has been successfully created!"
+			messagesWeFound += "Event has been successfully created! Redirecting you..."
+			redirect = append(redirect, id)
 		}
 	}
 	eventData := eventCreateContextData{
 		FormErrors:   errorsWeFound,
 		FormMessages: messagesWeFound,
+		Redirect:     redirect,
 	}
+	// if messagesWeFound != "" {
+	// 	foo := "/events/" + strconv.Itoa(id)
+	// 	println(foo)
+	// 	time.Sleep(2 * time.Second)
+	// 	http.Redirect(w, r, foo, http.StatusFound)
+	// 	return
+	// }
 	tmpl["event-new"].Execute(w, eventData)
 }
 
 func eventDetailController(w http.ResponseWriter, r *http.Request) {
 	eventIDstring := chi.URLParam(r, "eventID")
+	action := chi.URLParam(r, "action")
+
+	donate := ""
+	errorsWeFound := ""
+	confCode := ""
+
+	if action == "donate" {
+		donate += "yes"
+	}
+
 	eventID, err := strconv.Atoi(eventIDstring)
 	if err != nil {
 		http.Error(w, "Invalid event ID!", http.StatusBadRequest)
 		return
 	}
 
-	errorsWeFound := ""
-	messagesWeFound := ""
-
 	if r.Method == http.MethodPost {
-		//try to RSVP person
 		r.ParseForm()
 
 		email := strings.ToLower(r.PostFormValue("email"))
 		if strings.HasSuffix(email, "@yale.edu") {
 			err := addAttendee(eventID, email)
-			confCode := getConfirmationCode(email)
-			messagesWeFound = "RSVP successful! Your code is " + confCode
 			if err != nil {
 				http.Error(w, "Invalid event ID!", http.StatusInternalServerError)
 				return
 			}
+			confCode = getConfirmationCode(email)
 		} else {
 			errorsWeFound += "Bad email address! '@yale.edu only!'"
 		}
@@ -135,7 +154,8 @@ func eventDetailController(w http.ResponseWriter, r *http.Request) {
 	eventData := eventDetailContextData{
 		Event:        event,
 		FormErrors:   errorsWeFound,
-		FormMessages: messagesWeFound,
+		FormMessages: confCode,
+		Donate:       donate,
 	}
 
 	tmpl["event-detail"].Execute(w, eventData)

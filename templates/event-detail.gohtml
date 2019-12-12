@@ -1,60 +1,89 @@
 {{template "layout" .}}
 
 {{define "title"}}
-	{{.Event.Title}}
+	{{.Event.Title}} at
+	{{.Event.Location}}
 {{end}}
 
 {{define "content"}}
-
-
-<div class="body">
-	<p>
-		<!-- <div class="grid-item"> -->
-		<img src="{{.Event.Image}}">
-		<h1>
-			<a href="/events/{{.Event.ID}}">{{.Event.Title}}</a>
-		</h1>
-		<p>
-			Time:
+<div id="body" class="body">
+<section>
+<div class="grid-container">
+<div class="card-deck">
+<div class="text-left card-profile">
+<img src="{{.Event.Image}}" style="width:100%">
+<div class="p-4">
+<p class="title-profile"><b>{{.Event.Title}}</b></p>
+		<section>
+		<p><a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Want to Donate?</a></p>
+		<p><b>Location</b>: {{.Event.Location}} </p>
+		<p><b>Time</b>:
 			<time>
 				{{.Event.Date.Format "2006-01-02 15:04"}}
-			</time>
-		</p>
-		<p>
-			Location: {{.Event.Location}}
-		</p>
-		<p>
-			Category: {{.Event.Category}}
-		</p>
-		<p>
-			Description: {{.Event.Description}}
-		</p>
-			Attendees:
-			{{range .Event.Attending}}
+			</time></p>
+			<p><b>Category</b>: {{.Event.Category}}</p>
+			<p><b>Description</b>: {{.Event.Description}}</p>
+			<p><b>Attendees</b>:</p>
 			<ul>
+				{{range .Event.Attending}}
 				<li>
 				{{.}}
 				</li>
+				{{end}}
 			</ul>
-		{{end}}
-		<p>
-		<section>
-			<p>RSVP form:</p>
-			<form method="POST">
-			<input type="email" name="email">
-			<input type="submit">
-			</form>
 		</section>
-		</p>
-		<p>
-			<a href="/events/{{.Event.ID}}/donate" onclick="gtag('event', 'Click', { 'event_category': 'Donate', 'event_action':'Donated','event_label':'Clicked on Donate' });">Donate</a>
-		</p>
-	</p>
+
+		<div class="grid-container">
+		<section>
+			<p><b>RSVP form</b>:</p>
+			<form method="POST">
+				<input type="email" name="email" style="display: unset;">
+				<input type="submit" style="display: unset;">
+			</form>
+			</section>
+		</div>
+		<!-- {{if .FormMessages}}
+		<section class="confirmation-code">
+			Your confirmation code: {{.FormMessages}}
+		</section>
+		{{end}}
+
+		{{if .FormErrors}}
+		<section class="errors">
+			{{.FormErrors}}
+		</section>
+		{{end}} -->
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
 </div>
 
-<div class="toastarea" aria-live="polite" aria-atomic="true">
-  <!-- Position it -->
-	<div class="toastcontainer mx-auto">
+
+
+<div class="toastarea" id="toastarea" aria-live="polite" aria-atomic="true">
+	<div class="toastcontainer mx-auto" id="toastcontainer">
+
+		{{if .Donate}}
+		<script>
+				// alert('The toast is now fully shown.');
+				document.getElementById('toastarea').className = "toastarea h-100 is-blurred";
+				document.getElementById('toastarea').style = "text-center backdrop-filter: blur(2px) grayscale(100%)"
+				document.getElementById('toastcontainer').className = "toastcontainer mx-auto text-center";
+				var timer = setTimeout(function() {
+						window.location='/events/{{.Event.ID}}'
+				}, 3000);
+		</script>
+		<script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
+		<lottie-player
+		    src="https://assets3.lottiefiles.com/datafiles/N03bNcunCAhiE6o/data.json"  background="transparent"  speed="1"  style="width: 500px; height: 500px;"  loop  autoplay >
+		</lottie-player>
+		<h1 style="display: grid; margin-top: -150px;">Thanks for the love!</h1>
+		{{end}}
+
 		{{if .FormErrors}}
 		<div class="toast" id="message" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
 			<div class="toast-header bg-danger text-white">
@@ -64,24 +93,29 @@
 				</button>
 			</div>
 			<div class="toast-body errors">
+				<section class="errors">
 				{{.FormErrors}}
+				</section>
 			</div>
 		</div>
 		{{end}}
 
 		{{if .FormMessages}}
 		<div class="toast" data-autohide="false" id="message" role="alert" aria-live="assertive" aria-atomic="true" data-delay="10000">
-		  <div class="toast-header bg-success text-white">
-		    <strong class="mr-auto">Success!</strong>
-		     <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
-		      <span aria-hidden="true">&times;</span>
-		    </button>
-		  </div>
-		  <div class="toast-body">
-				{{.FormMessages}}
-		  </div>
+			<div class="toast-header bg-success text-white">
+				<strong class="mr-auto">Success!</strong>
+				 <button type="button" class="ml-2 mb-1 close" data-dismiss="toast" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="toast-body">
+				<section class="confirmation-code">
+				Success! Your confirmation code is: {{.FormMessages}}
+				</section>
+			</div>
 		</div>
 		{{end}}
+
 	</div>
 </div>
 {{end}}
