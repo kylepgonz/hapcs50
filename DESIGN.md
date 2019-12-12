@@ -1,3 +1,6 @@
+Project Name: Hap
+Members: Kyle Gonzales, Lucas Qiang Wei
+
 When you enter the site, you will first be presented with an event category video to attract users' attention. Click “Let's begin” to enter the activity display page.
 
 On the front page "What are you looking for? "Section, which presents the user with five different event types, and the user can click on it to view all the events under that type. In the "Check out what's happening" section of the homepage, 6 different activities will be displayed randomly, and the activities presented here will change every time the page is refreshed. The "All Events" section at the bottom of the home page shows all the activities. For each activity displayed on the homepage, users can click to enter the activity details page to obtain more detailed activity information.
