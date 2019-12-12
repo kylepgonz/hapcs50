@@ -1,3 +1,6 @@
+Project Name: Hap
+Members: Kyle Gonzales, Lucas Qiang Wei
+
 We created a website on which users can browse, search and RSVP for upcoming events around Yale. Users can also create new events.
 
 The webpages are designed and created by HTML, CSS, JavaScript, and GO language. You may need to install a Go compiler in order to run it. Instructions for downloading and installing the Go compilers, tools, and libraries please check https://golang.org/doc/ .
